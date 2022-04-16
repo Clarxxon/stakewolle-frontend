@@ -12,3 +12,6 @@ dist
 
 #idea
 .idea
+
+#macOS cache
+.DS_Store
