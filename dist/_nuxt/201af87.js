@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[34],{697:function(n,e,t){"use strict";t.r(e);var c={name:"adminpanel"},l=t(63),component=Object(l.a)(c,(function(){var n=this.$createElement;return(this._self._c||n)("div",{staticClass:"main"})}),[],!1,null,"e06b35ba",null);e.default=component.exports}}]);
