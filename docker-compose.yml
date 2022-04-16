@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    restart: always
+    image: node:12
+    volumes:
+      - .:/app
+    command: bash -c "cd /app && yarn install && yarn build && yarn start"
+    ports:
+      - "3000:3000"
+    networks:
+      - stakewolle
+networks:
+  stakewolle:
+    driver: bridge

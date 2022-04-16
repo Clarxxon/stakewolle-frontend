@@ -1,0 +1,84 @@
+@import 'resize';
+*{
+  margin: 0;
+  padding: 0;
+  font-family: "Yandex Sans Display";
+}
+
+body{
+  height: 100vh;
+  width: 100vw;
+}
+
+.admin-logo{
+  position: fixed;
+
+}
+
+input{
+  background: #FFFFFF;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 0.875rem;
+  border: 0;
+  height: 3.125rem;
+  padding: 0 1.25rem;
+}
+
+.admin-login{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  &__form{
+    width: 30.25rem;
+    height: 15.125rem;
+    background: #FCFCFC;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 1.6875rem;
+    padding: 1.5625rem 1.75rem;
+    box-sizing: border-box;
+    form{
+      display: flex;
+      flex-direction: column;
+      input{
+        margin-bottom: 1.5625rem;
+        &::placeholder{
+          color: rgba(0, 0, 0, 0.3);
+        }
+      }
+    }
+    &-btn-container{
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      button{
+        background: #000000;
+        border-radius: 0.625rem;
+        border: 0;
+        color: #ffffff;
+        width: 8.8125rem;
+        height: 2.5rem;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+  }
+  &__title{
+    font-size: 1.375rem;
+    color: #000000;
+    margin-bottom: 0.625rem;
+    font-weight: bold;
+  }
+  &__subtitle{
+    font-size: 0.875rem;
+    color: rgba(0, 0, 0, 0.5);
+    margin-top: 0.625rem;
+    font-weight: bold;
+    width: 18.3125rem;
+    text-align: center;
+  }
+}
+

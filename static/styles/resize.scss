@@ -1,0 +1,226 @@
+/* ----------- Non-Retina Screens ----------- */
+@media screen
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 1) { 
+    html{
+      font-size: 14px;
+    }
+}
+
+
+
+/* ----------- Retina Screens ----------- */
+@media screen
+  and (max-device-width: 1600px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (min-resolution: 192dpi) { 
+    html{
+      font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 2560px){
+  html{
+    font-size: 1rem;
+  }
+
+  .linked-us__form {
+    right: 46.625rem;
+  }
+
+  #nets-bottom{
+    width: 100%;
+  }
+
+  .nets #nets-rings {
+    left: 26rem;
+  }
+  .validators-wrapper #validatorsBg {
+    position: absolute;
+    top: -17.9rem;
+    z-index: 13;
+    width: 100%;
+  }
+
+  .linked-us{
+    margin-left: 23.1875rem;
+  }
+}
+@media screen and (max-width: 2560px) {
+  html {
+    font-size: 133.3%;
+  }
+}
+@media screen and (max-width: 2320px) {
+  html {
+    font-size: 120.83%;
+  }
+}
+@media screen and (max-width: 2150px) {
+  html {
+    font-size: 111.97%;
+  }
+}
+@media screen and (max-width: 2000px) {
+  html {
+    font-size: 104.16%;
+  }
+}
+@media screen and (max-width: 1920px){
+  html{
+    font-size: 100%;
+  }
+  .linked-us__form {
+    right: 15.625rem;
+  }
+  .validators-wrapper #validatorsBg {
+    position: absolute;
+    top: -1rem;
+    z-index: 13;
+    width: unset;
+  }
+  .linked-us {
+    margin-left: 15.1875rem;
+  }
+  .nets-container .nets-item {
+    z-index: 10;
+  }
+  .about-us{
+    padding-top: 4.35rem;
+  }
+  .nets #nets-rings {
+    left: 6rem;
+  }
+}
+
+@media screen and (max-width: 1680px) {
+  html {
+    font-size: 87.5%;
+  }
+}
+@media screen and (max-width: 1600px) {
+  html {
+    font-size: 83.3%;
+  }
+}
+@media screen and (max-width: 1440px) {
+  html {
+    font-size: 75%;
+  }
+}
+@media screen and (max-width: 1280px) {
+  html {
+    font-size: 66.6%;
+  }
+}
+@media screen and (max-width: 1152px) {
+  html {
+    font-size: 60%;
+  }
+}
+@media screen and (max-width: 1024px) {
+  html {
+    font-size: 53.3%;
+  }
+}
+@media screen and (max-width: 812px) {
+  html {
+    font-size: 42.6%;
+  }
+}
+@media screen and (max-width: 800px) {
+  html {
+    font-size: 41.6%;
+  }
+}
+@media screen and (max-width: 640px) {
+  html {
+    font-size: 33.3%;
+  }
+}
+
+@media screen and (max-width: 1440px){
+  .about-us{
+    padding-top: 8.35rem;
+  }
+  
+  .calculator-wrapper__top button {
+    width: 2.285rem;
+    height: 2.285rem;
+  }
+  .validators-wrapper .soon-validators .slider-wrapper {
+    height: 40rem
+  }
+}
+
+@media screen and (max-width: 428px){
+  html{
+    font-size: 18px;
+    overflow-x: hidden;
+  }
+  .mobile-navigation .mobile-content__top {
+    width: 100%;
+  }
+  .mobile-call {
+    height: 42.66667rem;
+  }
+  .mobile-call__form textarea {
+    width: 16.5rem;
+    box-sizing: border-box;
+  }
+  .mobile-call__form-input input {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .mobile-footer__contacts-input {
+    width: 70%;
+  }
+  .mobile-footer__contacts-input input{
+    width: 100%;
+    box-sizing: border-box;
+  }
+  .mobile-footer__contacts button{
+    width: 70%;
+  }
+  
+  .mobile-stonks__info {
+    z-index: 10;
+    position: absolute;
+  }
+}
+
+@media screen and (max-width: 425px){
+  html{
+    font-size: 18px;
+    overflow-x: hidden;
+  }
+  .mobile-navigation .mobile-content__top {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 414px){
+  html{
+    font-size: 17px;
+  }
+  .mobile-navigation .mobile-content__top {
+    width: 100%;
+  }
+
+}
+
+@media screen and (max-width: 375px){
+  html{
+    font-size: 16px;
+  }
+}
+
+@media screen and (orientation:landscape) and (max-width: 850px){
+  html{
+    font-size: 6px;
+  }
+  body{
+    width: 100vw;
+    overflow-x: hidden !important;
+  }
+}
