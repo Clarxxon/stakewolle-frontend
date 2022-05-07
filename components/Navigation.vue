@@ -2,27 +2,24 @@
   <div class="nav">
     <nuxt-link v-if="this.$i18n.locale === 'es'" :to="'/'+this.$i18n.locale" class="nav-logo">
       <div class="nav-logo__background"></div>
-      <img :src="fav" alt="">
+      <img :src="fav" alt="image"/>
       <p>takewolle</p>
     </nuxt-link>
     <nuxt-link v-if="this.$i18n.locale === 'en'" :to="'/'" class="nav-logo">
       <div class="nav-logo__background"></div>
-      <img :src="fav" alt="">
+      <img :src="fav" alt="image"/>
       <p>takewolle</p>
     </nuxt-link>
     <div class="nav-links">
       <a href="https://twitter.com/stakewolle" target="_blank" class="nav-links__item">
-        <img :src="twitter" alt="">
+        <img :src="twitter" alt="image"/>
       </a>
       <a href="https://t.me/stakewolle" target="_blank" class="nav-links__item">
-        <img :src="telegram" alt="">
+        <img :src="telegram" alt="image"/>
       </a>
       <a href="mailto:partners@stakewolle.com" class="nav-links__item">
-        <img :src="email" alt="">
+        <img :src="email" alt="image"/>
       </a>
-<!--      <a href="/" class="nav-links__item">-->
-<!--        <img :src="github" alt="">-->
-<!--      </a>-->
     </div>
     <div class="nav-anchors">
       <a v-if="navigation.about" @click.prevent="openSlide('d-about')" class="nav-anchors__item" href="#d-about">{{ $t('navigation.about_us') }}</a>
@@ -39,7 +36,7 @@
         <div class="language-background"></div>
         <p v-if="$i18n.locale !== 'es'">En</p>
         <p v-if="$i18n.locale !== 'en'">Ru</p>
-        <img :src="langArrow" alt="">
+        <img :src="langArrow" alt="image"/>
         <div class="language-toggle__sub">
           <nuxt-link
               :to="switchLocalePath('es')"
@@ -66,7 +63,7 @@
 </template>
 
 <script>
-import fav from "~/static/fav.png"
+import fav from "~/static/fav.webp"
 import twitter from '~/static/header-twitter.svg'
 import telegram from '~/static/header-telegram.svg'
 import instagram from '~/static/header-instagram.svg'

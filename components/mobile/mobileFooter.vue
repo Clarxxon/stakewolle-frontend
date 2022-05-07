@@ -77,12 +77,12 @@
     </div>
     
     <script src="https://code.jquery.com/jquery-2.2.4.js" integrity="sha256-iT6Q9iMJYuQiMWNd9lDyBUStIq/8PuOW33aOqmvFpqI=" crossorigin="anonymous"></script>
-    <script type='text/javascript' src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
+    <script src='//s3.amazonaws.com/downloads.mailchimp.com/js/mc-validate.js'></script>
   </div>
 </template>
 
 <script>
-import logo from '../../static/fav.png'
+import logo from '../../static/fav.webp'
 import twitter from '../../static/header-twitter.svg'
 import telegram from '../../static/header-telegram.svg'
 import instagram from '../../static/header-instagram.svg'

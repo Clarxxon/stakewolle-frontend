@@ -6,19 +6,19 @@
       <div class="mobile-benefits__cards">
         <div class="mobile-benefits__cards-item">
           <div class="mobile-benefits__cards-item__logo">
-            <img :src="time" alt="">
+            <img :src="time" alt="image"/>
           </div>
           <p>{{ $t('benefits._01') }}</p>
         </div>
         <div class="mobile-benefits__cards-item">
           <div class="mobile-benefits__cards-item__logo">
-            <img :src="guard" alt="">
+            <img :src="guard" alt="image"/>
           </div>
           <p>{{ $t('benefits._02') }}</p>
         </div>
         <div class="mobile-benefits__cards-item">
           <div class="mobile-benefits__cards-item__logo">
-            <img :src="net" alt="">
+            <img :src="net" alt="image"/>
           </div>
           <p>{{ $t('benefits._03') }}</p>
         </div>

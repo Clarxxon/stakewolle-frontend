@@ -76,7 +76,7 @@
 </template>
 
 <script>
-import logo from '../../static/fav.png'
+import logo from '../../static/fav.webp'
 import twitter from '~/static/header-twitter.svg'
 import telegram from '~/static/header-telegram.svg'
 import instagram from '~/static/header-instagram.svg'

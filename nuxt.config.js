@@ -2,10 +2,15 @@ export default {
   server: {
     host: '0.0.0.0', // default: localhost,
   },
+  publicRuntimeConfig: {
+    apiUrl: process.env.API_URL,
+  },
+  target: 'static',
   head: {
     title: 'Stakewolle',
     htmlAttrs: {
-      lang: 'en'
+      lang: 'en',
+      amp: true
     },
     meta: [
       { charset: 'utf-8' },
@@ -15,9 +20,19 @@ export default {
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/fav.svg' },
-      { rel: 'apple-touch-icon', type: 'image/svg', href: '/fav.svg'}
+      { rel: 'apple-touch-icon', type: 'image/svg', href: '/fav.svg'},
+      { rel: "canonical", href: "https://stakewolle.com/"},
+    ],
+    script: [
+      {async: true, src: "https://cdn.ampproject.org/v0.js"}
+    ],
+    noscript: [
+      {style: [
+          {body: { "-webkit-animation": "none",  "-moz-animation": "none",  "-ms-animation": "none",  animation: "none"}}
+      ]}
     ]
   },
+
 
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
@@ -30,6 +45,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
+    '~plugins/axios'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

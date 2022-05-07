@@ -5,8 +5,6 @@
       <p class="mobile-start__title">Stakewolle validator</p>
       <p class="mobile-start__subtitle">{{ $t('welcome.subtitle') }}</p>
       <a @click.prevent="openSlide('m-nets-container')" class="mobile-start__btn" href="#m-nets-container">{{ $t('welcome.more') }}</a>
-      <!-- <img v-if="$i18n.locale !== 'en'" :src="start" alt="">
-      <img v-if="$i18n.locale !== 'es'" :src="start_en" alt=""> -->
 
       <div class="mobile-start__bg-bottom">
         <div class="mobile-start__bg-bottom-image">

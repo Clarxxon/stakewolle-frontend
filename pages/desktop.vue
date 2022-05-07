@@ -19,10 +19,10 @@
     </div>
     <AboutUs></AboutUs>
     <Delegates v-bind:delegates="delegates"></Delegates>
-    <Nets v-bind:nets="nets"></Nets>
+    <Nets/>
     <SoonValidators v-bind:netsToValidators="netsToValidators"></SoonValidators>
     <div class="dark-bg">
-      <Calculator v-bind:nets="nets" id="d-calc"></Calculator>
+      <Calculator id="d-calc"></Calculator>
       <Benefits></Benefits>
       <Stages></Stages>
       <LinkUs></LinkUs>
@@ -35,36 +35,24 @@
 </template>
 
 <script>
-import powered from '../static/powered-by-akash.png'
+import powered from '../static/powered-by-akash.webp'
 
 export default {
   name: "desktop",
   props: {
-    nets: [],
     netsToValidators: [],
     delegates: []
   },
-  data () {
-    return{
-      powered,
-      navigation: {
-        about: true,
-        profit: true,
-        guide: true,
-        contacts: true,
-        blog: true,
-        stake: true
-      }
+  data: () => ({
+    powered,
+    navigation: {
+      about: true,
+      profit: true,
+      guide: true,
+      contacts: true,
+      blog: true,
+      stake: true
     }
-  },
-  methods: {
-
-  },
-  created(){
-
-  },
-  mounted(){
-
-  }
+  }),
 }
 </script>

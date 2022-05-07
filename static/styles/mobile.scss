@@ -1333,7 +1333,7 @@
           justify-content: center;
           position: absolute;
           top: calc-px(-40);
-          background: url("@/static/ring-bg.png");
+          background: url("@/static/ring-bg.webp");
           border-radius: 100%;
           background-position: center;
           background-size: cover;
@@ -1354,7 +1354,7 @@
   }
 
   .mobile-call{
-    background: url("../mobile/call-bg.png");
+    background: url("../mobile/call-bg.webp");
     height: calc-px(660);
     background-size: cover;
     width: 100%;
@@ -1534,7 +1534,7 @@
 
   .mobile-years{
     padding-top: 8rem;
-    background: url(../mobile/years-bg.png);
+    background: url(../mobile/years-bg.webp);
     background-position: center;
     background-repeat: no-repeat;
     .stages-line{

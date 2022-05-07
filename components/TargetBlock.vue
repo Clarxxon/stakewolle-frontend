@@ -42,9 +42,9 @@ import round from "../static/top-img/info-violet.svg"
 import star from "@/static/orange-star.svg"
 import roundWhite from "../static/jar.svg"
 import blurWhite from "@/static/blur-white.svg"
-import orangeBg from '../static/top-img/bg-orange.png'
+import orangeBg from '../static/top-img/bg-orange.webp'
 import mainreact from '../static/Main round (5).svg'
-import darkBg from '../static/top-img/bg-dark.png'
+import darkBg from '../static/top-img/bg-dark.webp'
 import darkInside from '../static/redesign/Round violet (3).svg'
 import orangeInside from '../static/Round orange (9).svg'
 import whiteInside from '../static/top-img/white-inside.svg'

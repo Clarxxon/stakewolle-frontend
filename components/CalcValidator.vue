@@ -1,9 +1,9 @@
 <template>
-  <div class="calc-validator">
+  <div v-if="netsToCalc.length" class="calc-validator">
     <p class="popup-copy">{{$t('popup.copy')}}</p>
     <div class="calc-validator__wrapper">
       <div class="calc-validator__title">
-        <img :src="netsToCalc[0].img" alt="">
+        <img :src="netsToCalc[0].img" alt="image"/>
         <p>{{netsToCalc[0].title}}</p>
       </div>
       <div @click="hide" class="calc-validator__wrapper__lock">
@@ -15,7 +15,7 @@
         <p>{{ netsToCalc[0].adres }}</p>
         <input :value="netsToCalc[0].adres" tabindex='-1' contenteditable="true" type="text" class="calculator-token-input">
         <button @click="copyAdres">
-          <img :src="copy" alt="">
+          <img :src="copy" alt="image"/>
         </button>
       </div>
       <div class="calculator-wrapper">
@@ -57,12 +57,14 @@
         </div>
       </div>
       <div class="calc-validator__buttons">
-        <button class="cosmostation-link" v-if="netsToCalc[0].cosmostation !== '-'">
+        <button class="cosmostation-link"
+          v-if="netsToCalc[0].cosmostation !== '-'"
+        >
           <a target="_blank" :href="netsToCalc[0].cosmostation"></a>
           <div class="calc-validator__buttons-bg"></div>
           <div>
             <p>{{ $t('popup.calculator.cosmos') }}</p>
-            <img :src="csmst" alt="">
+            <img :src="csmst" alt="image"/>
           </div>
         </button>
         <button v-if="netsToCalc[0].kepler_link !== '-'">
@@ -70,7 +72,7 @@
           <div class="calc-validator__buttons-bg"></div>
           <div>
             <p>{{ $t('popup.calculator.kepler') }}</p>
-            <img :src="kplr" alt="">
+            <img :src="kplr" alt="image"/>
           </div>
         </button>
         <button v-if="netsToCalc[0].desmos_link && netsToCalc[0].desmos_link !== '-'">
@@ -78,7 +80,7 @@
           <div class="calc-validator__buttons-bg"></div>
           <div>
             <p>{{ $t('popup.calculator.desmos') }}</p>
-            <img src="../static/redesign/desmos.svg" alt="">
+            <img src="../static/redesign/desmos.svg" alt="image"/>
           </div>
         </button>
         <button v-if="netsToCalc[0].pingpub_link && netsToCalc[0].pingpub_link !== '-'">
@@ -86,7 +88,7 @@
           <div class="calc-validator__buttons-bg"></div>
           <div>
             <p>{{ $t('popup.calculator.pingpub') }}</p>
-            <img src="../static/redesign/Group.svg" alt="">
+            <img src="../static/redesign/Group.svg" alt="image"/>
           </div>
         </button>
       </div>
@@ -96,22 +98,22 @@
 
 <script>
 
-import Akash from "@/static/nets/Akash.png"
-import BandProtocol from "@/static/nets/BandProtocol.png"
-import CertiK from "@/static/nets/CertiK.png"
-import Comdex from "@/static/nets/Comdex.png"
-import Cosmos from "@/static/nets/Cosmos.png"
-import Desmos from "@/static/nets/Desmos.png"
-import eMoney from "@/static/nets/eMoney.png"
-import Iris from "@/static/nets/Iris.png"
-import Juno from "@/static/nets/Juno.png"
-import Kava from "@/static/nets/Kava.png"
-import Ki from "@/static/nets/Ki.png"
-import Mediblock from "@/static/nets/Mediblock.png"
-import Osmosis from "@/static/nets/Osmosis.png"
-import Persistence from "@/static/nets/Persistence.png"
-import SecretNetwork from "@/static/nets/SecretNetwork.png"
-import SifChain from "@/static/nets/SifChain.png"
+import Akash from "@/static/nets/Akash.webp"
+import BandProtocol from "@/static/nets/BandProtocol.webp"
+import CertiK from "@/static/nets/CertiK.webp"
+import Comdex from "@/static/nets/Comdex.webp"
+import Cosmos from "@/static/nets/Cosmos.webp"
+import Desmos from "@/static/nets/Desmos.webp"
+import eMoney from "@/static/nets/eMoney.webp"
+import Iris from "@/static/nets/Iris.webp"
+import Juno from "@/static/nets/Juno.webp"
+import Kava from "@/static/nets/Kava.webp"
+import Ki from "@/static/nets/Ki.webp"
+import Mediblock from "@/static/nets/Mediblock.webp"
+import Osmosis from "@/static/nets/Osmosis.webp"
+import Persistence from "@/static/nets/Persistence.webp"
+import SecretNetwork from "@/static/nets/SecretNetwork.webp"
+import SifChain from "@/static/nets/SifChain.webp"
 import kplr from '@/static/nets/kepler.svg'
 import csmst from '@/static/nets/cosmostation.svg'
 import copy from '@/static/nets/copy.svg'
@@ -123,15 +125,13 @@ export default {
       type: Array
     }
   },
-  data(){
-    return{
-      nets: [],
-      Cosmos, Akash, BandProtocol, CertiK, Comdex,
-      Desmos, eMoney, Iris, Juno, Kava, Ki, Mediblock,
-      Osmosis, Persistence, SecretNetwork, SifChain, kplr,
-      current: 0, copy, csmst
-    }
-  },
+  data: () => ({
+    nets: [],
+    current: 0,
+    Cosmos, Akash, BandProtocol, CertiK, Comdex,
+    Desmos, eMoney, Iris, Juno, Kava, Ki, Mediblock,
+    Osmosis, Persistence, SecretNetwork, SifChain, kplr, copy, csmst
+  }),
   methods:{
     copyAdres(){
       let el = document.querySelector('.calculator-token-input')
@@ -239,15 +239,16 @@ export default {
     const egPrice = document.querySelectorAll('.eg-price')
     const fakeLine = document.querySelector('.calc-validator .calculator-wrapper__range-fake')
 
+    if (mainPrice.length) {mainPrice[this.current].innerText = '10,000'}
+    if (this.netsToCalc.length) {
+      edTokens[this.current].innerText = Math.floor(((10000/100)*this.netsToCalc[this.current].fee)/365)
+      emTokens[this.current].innerText = Math.floor(((10000/100)*this.netsToCalc[this.current].fee)/12)
+      egTokens[this.current].innerText = Math.floor(((10000/100)*this.netsToCalc[this.current].fee)/1)
 
-    mainPrice[this.current].innerText = '10,000'
-    edTokens[this.current].innerText = Math.floor(((10000/100)*this.netsToCalc[this.current].fee)/365)
-    emTokens[this.current].innerText = Math.floor(((10000/100)*this.netsToCalc[this.current].fee)/12)
-    egTokens[this.current].innerText = Math.floor(((10000/100)*this.netsToCalc[this.current].fee)/1)
-
-    edPrice[this.current].innerText = Math.floor((Math.floor(((10000/100)*this.netsToCalc[this.current].fee)/365))*this.netsToCalc[this.current].course)
-    emPrice[this.current].innerText = Math.floor((Math.floor(((10000/100)*this.netsToCalc[this.current].fee)/12))*this.netsToCalc[this.current].course)
-    egPrice[this.current].innerText = Math.floor((Math.floor(((10000/100)*this.netsToCalc[this.current].fee)/1))*this.netsToCalc[this.current].course)
+      edPrice[this.current].innerText = Math.floor((Math.floor(((10000/100)*this.netsToCalc[this.current].fee)/365))*this.netsToCalc[this.current].course)
+      emPrice[this.current].innerText = Math.floor((Math.floor(((10000/100)*this.netsToCalc[this.current].fee)/12))*this.netsToCalc[this.current].course)
+      egPrice[this.current].innerText = Math.floor((Math.floor(((10000/100)*this.netsToCalc[this.current].fee)/1))*this.netsToCalc[this.current].course)
+    }
   },
   async created() {
 

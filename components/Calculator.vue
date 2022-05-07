@@ -1,11 +1,11 @@
 <template>
   <div class="calculator">
-    <img class="calculator-staff-image" id="round-white-top" :src="roundWhiteTop" alt="">
-    <img class="calculator-staff-image" id="round-orange-net" :src="roundOrangeNet" alt="">
-    <img class="calculator-staff-image" id="round-white-blur" :src="roundWhiteBlur" alt="">
-    <img class="calculator-staff-image" id="round-white-calc" :src="roundWhiteCalc" alt="">
-    <img class="calculator-staff-image" id="violet-blur" :src="violetBlur" alt="">
-    <img class="calculator-staff-image" id="round-top-overflow" :src="roundTopOveflow" alt="">
+    <img class="calculator-staff-image" id="round-white-top" :src="roundWhiteTop" alt="image"/>
+    <img class="calculator-staff-image" id="round-orange-net" :src="roundOrangeNet" alt="image"/>
+    <img class="calculator-staff-image" id="round-white-blur" :src="roundWhiteBlur" alt="image"/>
+    <img class="calculator-staff-image" id="round-white-calc" :src="roundWhiteCalc" alt="image"/>
+    <img class="calculator-staff-image" id="violet-blur" :src="violetBlur" alt="image"/>
+    <img class="calculator-staff-image" id="round-top-overflow" :src="roundTopOveflow" alt="image"/>
     <div class="calculator-info">
       <div class="calculator-wrapper">
         <div class="calculator-wrapper__range">
@@ -19,12 +19,12 @@
           <button @click="toRight" class="calculator-wrapper__top-btn__right">
             <img :src="arrowRight" alt="">
           </button>
-          <div @click="sliderClick" v-for="i in netsParse" :class="i.calc_class_slider_desktop">
+          <div @click="sliderClick" v-for="i in netsParse" :class="i.netsClass.calc_class_slider_desktop">
             <img :src="i.img" alt="">
           </div>
         </div>
         <div class="calculator-wrapper__description">
-          <div v-for="i in netsParse" :class="i.calc_info_class_desktop">
+          <div v-for="i in netsParse" :class="i.netsClass.calc_info_class_desktop">
             <div class="calculator-wrapper__info-header">
               <p>{{ $t('calculator.how_many') }}<span>{{i.token}}</span>{{ $t('calculator.do_you') }}?</p>
               <p>{{ $t('calculator.year_profit') }}</p>
@@ -76,32 +76,32 @@
 </template>
 
 <script>
-import roundWhite from '../static/Round white.png'
-import Akash from "@/static/nets/Akash.png"
-import BandProtocol from "@/static/nets/BandProtocol.png"
-import CertiK from "@/static/nets/CertiK.png"
-import Comdex from "@/static/nets/Comdex.png"
-import Cosmos from "@/static/nets/Cosmos.png"
-import Desmos from "@/static/nets/Desmos.png"
-import eMoney from "@/static/nets/eMoney.png"
-import Iris from "@/static/nets/Iris.png"
-import Juno from "@/static/nets/Juno.png"
-import Kava from "@/static/nets/Kava.png"
-import Ki from "@/static/nets/Ki.png"
-import Mediblock from "@/static/nets/Mediblock.png"
-import Osmosis from "@/static/nets/Osmosis.png"
-import Persistence from "@/static/nets/Persistence.png"
-import SecretNetwork from "@/static/nets/SecretNetwork.png"
-import SifChain from "@/static/nets/SifChain.png"
-import Rizon from '../static/nets/Rizon.png'
-import BitSong from '../static/nets/BitSong.png'
-import LikeCoin from '../static/nets/LikeKoin.png'
-import Chihua from '../static/nets/Chihua.png'
-import Lum from '../static/nets/Lum.png'
-import Sentinel from '../static/nets/Sentinel.png'
-import Cheqd from '../static/nets/Cheqd.png'
-import Dig from '../static/nets/Dig.png'
-import infoBg from '../static/redesign/Ellipse 55 (3).png'
+import roundWhite from '../static/Round white.webp'
+import Akash from "@/static/nets/Akash.webp"
+import BandProtocol from "@/static/nets/BandProtocol.webp"
+import CertiK from "@/static/nets/CertiK.webp"
+import Comdex from "@/static/nets/Comdex.webp"
+import Cosmos from "@/static/nets/Cosmos.webp"
+import Desmos from "@/static/nets/Desmos.webp"
+import eMoney from "@/static/nets/eMoney.webp"
+import Iris from "@/static/nets/Iris.webp"
+import Juno from "@/static/nets/Juno.webp"
+import Kava from "@/static/nets/Kava.webp"
+import Ki from "@/static/nets/Ki.webp"
+import Mediblock from "@/static/nets/Mediblock.webp"
+import Osmosis from "@/static/nets/Osmosis.webp"
+import Persistence from "@/static/nets/Persistence.webp"
+import SecretNetwork from "@/static/nets/SecretNetwork.webp"
+import SifChain from "@/static/nets/SifChain.webp"
+import Rizon from '../static/nets/Rizon.webp'
+import BitSong from '../static/nets/BitSong.webp'
+import LikeCoin from '../static/nets/LikeKoin.webp'
+import Chihua from '../static/nets/Chihua.webp'
+import Lum from '../static/nets/Lum.webp'
+import Sentinel from '../static/nets/Sentinel.webp'
+import Cheqd from '../static/nets/Cheqd.webp'
+import Dig from '../static/nets/Dig.webp'
+import infoBg from '../static/redesign/Ellipse 55 (3).webp'
 import roundWhiteTop from '../static/calculator/round-white-top.svg'
 import roundInsideOrange from '../static/calculator/round-inside-orange.svg'
 import roundInsideWhite from '../static/calculator/round-inside-white.svg'
@@ -129,14 +129,9 @@ export default {
       arrowLeft, arrowRight, infoBg,
       current: 0,
       netsToCalc: [],
-      netsParse: []
+      netsParse: [],
+      nets: [],
     }
-  },
-  props: {
-    nets: []
-  },
-  async created(){
-    this.netsParse = this.nets
   },
   methods: {
     round(number){
@@ -356,34 +351,45 @@ export default {
       egPrice[this.current].innerText = Math.floor((Math.floor(((e.target.value/100)*this.netsParse[this.current].annual_comission)/1))*this.netsParse[this.current].price)
 
       fakeLine.style.width = (e.target.value/1000) + '%'
+    },
+    async setStartValues() {
+      const range = document.querySelector('.calculator-wrapper__range input')
+      range.value = 0
+
+      const edTokens = await document.querySelectorAll('.calculator .ed-tokens')
+      const emTokens = await document.querySelectorAll('.calculator .em-tokens')
+      const egTokens = await document.querySelectorAll('.calculator .eg-tokens')
+      const edPrice = await document.querySelectorAll('.calculator .ed-price')
+      const emPrice = await document.querySelectorAll('.calculator .em-price')
+      const egPrice = await document.querySelectorAll('.calculator .eg-price')
+
+      for(let i=0; i < this.nets.length-1; i++){
+        edTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/365)
+        emTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/12)
+        egTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/1)
+
+        edPrice[i].innerText = Math.floor((Math.floor(((10000/100)*this.netsParse[i].annual_comission)/365))*this.netsParse[this.current].price)
+        emPrice[i].innerText = Math.floor((Math.floor(((10000/100)*this.netsParse[i].annual_comission)/12))*this.netsParse[this.current].price)
+        egPrice[i].innerText = Math.floor((Math.floor(((10000/100)*this.netsParse[i].annual_comission)/1))*this.netsParse[this.current].price)
+      }
+
+      const validatorRange = document.querySelector('.calculator-wrapper__range input')
+      setTimeout(()=>{
+        validatorRange.value = 10000
+      }, 1000)
     }
   },
-  async mounted(){
-    const range = document.querySelector('.calculator-wrapper__range input')
-    range.value = 0
-
-    const edTokens = document.querySelectorAll('.calculator .ed-tokens')
-    const emTokens = document.querySelectorAll('.calculator .em-tokens')
-    const egTokens = document.querySelectorAll('.calculator .eg-tokens')
-    const edPrice = document.querySelectorAll('.calculator .ed-price')
-    const emPrice = document.querySelectorAll('.calculator .em-price')
-    const egPrice = document.querySelectorAll('.calculator .eg-price')
-
-    for(let i=0; i<this.nets.length-1; i++){
-      edTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/365)
-      emTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/12)
-      egTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/1)
-
-      edPrice[i].innerText = Math.floor((Math.floor(((10000/100)*this.netsParse[i].annual_comission)/365))*this.netsParse[this.current].price)
-      emPrice[i].innerText = Math.floor((Math.floor(((10000/100)*this.netsParse[i].annual_comission)/12))*this.netsParse[this.current].price)
-      egPrice[i].innerText = Math.floor((Math.floor(((10000/100)*this.netsParse[i].annual_comission)/1))*this.netsParse[this.current].price)
+  watch: {
+    __netsCount() {
+      this.nets = this.$store.state.nets.nets
+      this.netsParse = this.$store.state.nets.nets
+      this.setStartValues()
     }
-
-    const validatorRange = document.querySelector('.calculator-wrapper__range input')
-    setTimeout(()=>{
-      validatorRange.value = 10000
-    }, 1000)
-
+  },
+  computed: {
+    __netsCount() {
+      return this.$store.state.nets.nets.length
+    }
   }
 }
 </script>

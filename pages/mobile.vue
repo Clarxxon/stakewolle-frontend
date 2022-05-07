@@ -36,7 +36,7 @@
 </template>
 
 <script>
-import powered from '../static/powered-by-akash.png'
+import powered from '../static/powered-by-akash.webp'
 export default {
   name: "mobile",
   components: {},

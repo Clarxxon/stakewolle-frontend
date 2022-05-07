@@ -6,7 +6,10 @@
 
 <script>
 export default {
-  name: "adminpanel"
+  name: "adminpanel",
+  mounted() {
+    this.$router.push('/admin-login')
+  }
 }
 </script>
 

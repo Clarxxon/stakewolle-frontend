@@ -1,10 +1,10 @@
 <template>
   <div class="footer">
-    <img class="footer-img-outside" :src="roundVioletBlur1" alt="">
+    <img class="footer-img-outside" :src="roundVioletBlur1" alt="image"/>
     <div class="form-alert">
       <div class="form-alert__form">
-        <img class="form-alert__form-round" :src="roundAlert1" alt="">
-        <img class="form-alert__form-round" :src="roundAlert2" alt="">
+        <img class="form-alert__form-round" :src="roundAlert1" alt="image"/>
+        <img class="form-alert__form-round" :src="roundAlert2" alt="image"/>
         <p class="form-alert__form-pretitle">{{ $t('footer.popup.title') }}</p>
         <p class="form-alert__form-title">{{ $t('footer.popup.subtitle') }}</p>
         <div class="form-alert__form-btn">
@@ -21,22 +21,22 @@
     </div>
     <div class="footer-wrapper">
       <nuxt-link v-if="this.$i18n.locale === 'en'" to="/" class="footer-wrapper__logo">
-        <img :src="logo" alt="">
+        <img :src="logo" alt="image"/>
         <p>takewolle</p>
       </nuxt-link>
       <nuxt-link v-if="this.$i18n.locale === 'es'" to="/es" class="footer-wrapper__logo">
-        <img :src="logo" alt="">
+        <img :src="logo" alt="image"/>
         <p>takewolle</p>
       </nuxt-link>
       <div class="footer-social__links">
         <a href="https://twitter.com/stakewolle" target="_blank" class="footer-social__links-item">
-          <img :src="twitter" alt="">
+          <img :src="twitter" alt="image"/>
         </a>
         <a href="https://t.me/stakewolle" target="_blank" class="footer-social__links-item">
-          <img :src="telegram" alt="">
+          <img :src="telegram" alt="image"/>
         </a>
         <a href="mailto:partners@stakewolle.com" class="footer-social__links-item">
-          <img :src="email" alt="">
+          <img :src="email" alt="image"/>
         </a>
         <!--            <a href="/" target="_blank" class="footer-social__links-item">-->
         <!--              <img :src="github" alt="">-->
@@ -65,12 +65,12 @@
     </div>
     <!-- Begin Mailchimp Signup Form -->
     <form action="https://stakewolle.us14.list-manage.com/subscribe/post?u=b36985125a188dbcb49cb8dc0&amp;id=b446ab1001" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate footer-contacts__form" novalidate>
-      <img class="footer-contacts__form-bg" id="form-bg-orange" :src="formOrangeBg" alt="">
-      <img class="footer-contacts__form-bg" id="form-bg-white" :src="formWhiteBg" alt="">
-      <img class="footer-contacts__form-bg" id="form-bg-desmos" :src="roundDesmos" alt="">
+      <img class="footer-contacts__form-bg" id="form-bg-orange" :src="formOrangeBg" alt="image"/>
+      <img class="footer-contacts__form-bg" id="form-bg-white" :src="formWhiteBg" alt="image"/>
+      <img class="footer-contacts__form-bg" id="form-bg-desmos" :src="roundDesmos" alt="image"/>
       <div id="mc_embed_signup_scroll">
         <div class="mc-field-group">
-          <img :src="mail" alt="">
+          <img :src="mail" alt="image"/>
           <input type="email" :placeholder="$t('footer.contacts.title')" value="" name="EMAIL" class="required email footer-input" id="mce-EMAIL">
         </div>
         <div style="position: absolute; left: -5000px;" aria-hidden="true">
@@ -91,7 +91,7 @@
 </template>
 
 <script>
-import logo from '../static/fav.png'
+import logo from '../static/fav.webp'
 import github from '../static/footer/github.svg'
 import instagram from '../static/footer/instagram.svg'
 import telegram from '../static/footer/telegram.svg'

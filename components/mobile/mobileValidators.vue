@@ -37,12 +37,12 @@
 </template>
 
 <script>
-import orangeK from '../../static/mobile/orangeK.png'
-import eMoney from '../../static/nets/eMoney.png'
-import CertiK from '../../static/nets/CertiK.png'
-import Comdex from '../../static/nets/Comdex.png'
-import roundedDark from '../../static/mobile/rounded-dark.png'
-import validatorsBg from '../../static/mobile/big-bg.png'
+import orangeK from '../../static/mobile/orangeK.webp'
+import eMoney from '../../static/nets/eMoney.webp'
+import CertiK from '../../static/nets/CertiK.webp'
+import Comdex from '../../static/nets/Comdex.webp'
+import roundedDark from '../../static/mobile/rounded-dark.webp'
+import validatorsBg from '../../static/mobile/big-bg.webp'
 import arrowLeft from '../../static/mobile/left.svg'
 import arrowRight from '../../static/mobile/right.svg'
 export default {

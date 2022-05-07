@@ -1,17 +1,17 @@
 <template>
   <div id="d-about" class="about-us">
     <div class="about-us__info">
-      <img class="about-us__info-decor-bg" :src="bgBack" alt="">
-      <img class="about-us__info-decor-item" :src="juno" alt="">
+      <img class="about-us__info-decor-bg" :src="bgBack" alt="image"/>
+      <img class="about-us__info-decor-item" :src="juno" alt="image"/>
       <div class="about-us__info-decor">
-        <img class="about-us__info-decor-bright-bg" :src="bgBright" alt="">
-        <img class="about-us__info-decor-violet-bg" :src="bgViolet" alt="">
-        <img class="about-us__info-decor-item-orange" :src="orange" alt="">
-        <img class="about-us__info-decor-item-white" :src="white" alt="">
-        <img class="about-us__info-decor-item-violet" :src="violet" alt="">
+        <img class="about-us__info-decor-bright-bg" :src="bgBright" alt="image"/>
+        <img class="about-us__info-decor-violet-bg" :src="bgViolet" alt="image"/>
+        <img class="about-us__info-decor-item-orange" :src="orange" alt="image"/>
+        <img class="about-us__info-decor-item-white" :src="white" alt="image"/>
+        <img class="about-us__info-decor-item-violet" :src="violet" alt="image"/>
       </div>
       <div class="about-us__info-text">
-        <img class="about-us__info-text-img" :src="orangeNet" alt="">
+        <img class="about-us__info-text-img" :src="orangeNet" alt="image"/>
         <p class="about-us__info-text__title">{{ $t('navigation.about_us') }}</p>
         <p class="about-us__info-text__description" v-html="$t('about_us_description')"></p>
       </div>
@@ -21,9 +21,9 @@
 
 <script>
 import about from "@/static/about-us.svg"
-import bgBack from '../static/redesign/Ellipse 55 (3).png'
-import bgBright from '../static/about/bg-bright.png'
-import bgViolet from '../static/about/bg-violet.png'
+import bgBack from '../static/redesign/Ellipse 55 (3).webp'
+import bgBright from '../static/about/bg-bright.webp'
+import bgViolet from '../static/about/bg-violet.webp'
 import juno from '../static/about/juno.svg'
 import orange from '../static/about/orange.svg'
 import white from '../static/about/white.svg'

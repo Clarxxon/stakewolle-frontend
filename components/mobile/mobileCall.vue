@@ -21,19 +21,19 @@
       <div class="mobile-call__wrapper">
         <div class="mobile-call__wrapper-item">
           <div>
-            <img :src="delegate" alt="">
+            <img :src="delegate" alt="image"/>
           </div>
           <p>{{ $t('contacts.sub_01') }}</p>
         </div>
         <div class="mobile-call__wrapper-item">
           <div>
-            <img :src="excel" alt="">
+            <img :src="excel" alt="image"/>
           </div>
           <p>{{ $t('contacts.sub_02') }}</p>
         </div>
         <div class="mobile-call__wrapper-item">
           <div>
-            <img :src="partners" alt="">
+            <img :src="partners" alt="image"/>
           </div>
           <p>{{ $t('contacts.sub_03') }}</p>
         </div>
@@ -43,15 +43,15 @@
         <p class="mobile-call__form-title">{{ $t('contacts.contact_us') }}</p>
         <div id="mc_embed_signup_scroll">
           <div id="mc-field-group-user" class="mc-field-group">
-            <img :src="profile" alt="">
+            <img :src="profile" alt="image"/>
           	<input type="text" :placeholder="$t('contacts.name')" value="" name="MMERGE2" class="" id="mce-MMERGE2">
           </div>
           <div class="mc-field-group">
-            <img :src="mail" alt="">
+            <img :src="mail" alt="image"/>
           	<input type="email" value="" :placeholder="$t('contacts.mail')" name="EMAIL" class="required email mobile-linked-email" id="mce-EMAIL">
           </div>
           <div class="mc-field-group">
-            <img :src="mail" alt="">
+            <img :src="mail" alt="image"/>
           	<textarea type="text" :placeholder="$t('contacts.msg')" value="" name="MMERGE1" class="" id="mce-MMERGE1"></textarea>
           </div>
           <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_b36985125a188dbcb49cb8dc0_b446ab1001" tabindex="-1" value=""></div>

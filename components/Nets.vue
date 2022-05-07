@@ -1,6 +1,6 @@
 <template>
   <div id="nets-container" class="nets">
-    <calc-validator v-bind:netsToCalc="netsToCalc"></calc-validator>
+    <calc-validator :netsToCalc="netsToCalc"></calc-validator>
     <div class="nets-popup__background">
       <div @click="popupClose" class="nets-popup__background-clickable"></div>
       <div class="nets-popup">
@@ -11,8 +11,8 @@
         <h3>{{ $t('popup.title') }}</h3>
         <p class="popup-copy">{{$t('popup.copy')}}</p>
         <div class="calculator-token">
-          <p>{{ netsParse[current].adres }}</p>
-          <input :value="netsParse[current].adres" tabindex='-1' contenteditable="true" type="text" class="calculator-token-input">
+          <p v-if="netsParse[current]">{{ netsParse[current].adres }}</p>
+          <input v-if="netsParse[current]" :value="netsParse[current].adres" tabindex='-1' contenteditable="true" type="text" class="calculator-token-input">
           <button @click="copyAdres">
             <img :src="copy" alt="">
           </button>
@@ -25,8 +25,8 @@
             <img :src="popupRight" alt="">
           </button>
           <div class="nets-popup__top-slider__wrapper">
-            <div @click="setCurrent" :id="'_'+i.coin" v-for="i in netsParse" :class="i.popup_class_slider">
-              <div v-if="!i.ready_to_look" class="nets-popup__top-slider__wrapper-item__preloader">
+            <div @click="setCurrent" :id="'_'+i.coin" v-for="i in netsParse" :class="i.netsClass.popup_class_slider">
+              <div v-if="!i.id" class="nets-popup__top-slider__wrapper-item__preloader">
                 <div><span>{</span><span>}</span></div>
                 <p>Актуализация данных</p>
               </div>
@@ -34,7 +34,7 @@
               <div class="nets-popup__top-slider__wrapper-item__background">
                 <img :src="i.img" alt="">
                 <div class="nets-popup__top-slider__wrapper-item__background-linear"></div>
-                <bar v-if="i.week_data.length>0 && i.ready_to_look" :sliderData="i.week_data" class="nets-popup__top-slider__wrapper-item__background-chart"></bar>
+                <bar v-if="i.week_data.length" :sliderData="i.week_data" class="nets-popup__top-slider__wrapper-item__background-chart"></bar>
               </div>
               <div class="nets-popup__top-slider__wrapper-item__info">
                 <div class="nets-popup__top-slider__wrapper-item__info-name">
@@ -44,13 +44,13 @@
                 <div class="nets-popup__top-slider__wrapper-item__info-fee">
                   <img v-if="!i.price_dynamics" class="course-arrow__top" :src="arrowDown" alt="">
                   <img v-if="i.price_dynamics" style="transform: rotate(180deg)" class="course-arrow__top" :src="arrowDown" alt="">
-                  <p>{{ i.fee }} %</p>
+                  <p>{{ i.price_change_percentage }} %</p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div v-for="i in netsParse" :class="i.nets_stat_class">
+        <div v-for="i in netsParse" :class="i.netsClass.nets_stat_class">
           <div class="nets-popup__stat-title">
             <div class="nets-popup__stat-title__blockchain">
               <p class="nets-popup__stat-title__blockchain-title">{{ $t('popup.blockchain') }}</p>
@@ -71,11 +71,6 @@
                     <p class="nets-popup__stat-info__positions-top__coin-name__subtitle">{{i.token}}</p>
                   </div>
                 </div>
-                <div class="nets-popup__stat-info__positions-top__blocktime">
-                  <img :src="blockTime" alt="">
-                  <p>Block Time</p>
-                  <p>{{i.block_time}}mc</p>
-                </div>
               </div>
               <div class="nets-popup__stat-info__positions-values">
                 <div class="nets-popup__stat-info__positions-price">
@@ -86,12 +81,12 @@
                   <div class="nets-popup__stat-info__positions-coingecko__value">
                     <img v-if="!i.price_dynamics" class="course-arrow__bottom" :src="arrowDownDark" alt="">
                     <img v-if="i.price_dynamics" style="transform: rotate(180deg)" class="course-arrow__bottom" :src="arrowDownDark" alt="">
-                    <p>{{i.fee}}% (24h)</p>
+                    <p>{{i.price_change_percentage}}% (24h)</p>
                   </div>
                 </div>
                 <div class="nets-popup__stat-info__positions-market">
-                  <p>APY</p>
-                  <p>{{i.apy}}%</p>
+                  <p>Market Cap</p>
+                  <p>{{i.market_cap}}$</p>
                 </div>
                 <div class="nets-popup__stat-info__positions-vol">
                   <p>Inflation</p>
@@ -100,7 +95,7 @@
               </div>
             </div>
             <div class="nets-popup__stat-info__graph">
-              <bar-graph v-if="i.week_data.length>0 && i.ready_to_look" :sliderDataGraph="i.week_data" class="nets-popup__stat-info__graph-chart"></bar-graph>
+              <bar-graph v-if="i.week_data.length" :sliderDataGraph="i.week_data" class="nets-popup__stat-info__graph-chart"/>
               <div class="nets-popup__stat-info__graph-line"></div>
               <div class="nets-popup__stat-info__graph-line"></div>
               <div class="nets-popup__stat-info__graph-line"></div>
@@ -131,7 +126,11 @@
     <h5>{{ $t('delegates.title') }}</h5>
     <div class="nets-container">
       <div :id="'net-'+i.coin" class="nets-item" v-for="i in netsParse">
-        <img class="nets-item__logo" :src="i.img" alt="">
+        <img
+            class="nets-item__logo"
+            :src="i.img"
+            alt=""
+        >
         <p class="nets-item__title">{{ i.title }}</p>
         <p v-if="$i18n.locale !== 'en'" class="nets-item__subtitle">{{ i.subtitle }}</p>
         <p v-if="$i18n.locale !== 'es'" class="nets-item__subtitle">{{ i.subtitle_en }}</p>
@@ -154,7 +153,7 @@
 
 <script>
 
-import rings from "../static/nets/rings.png"
+import rings from "../static/nets/rings.webp"
 import bottom from "../static/nets/bottom.svg"
 import popupLeft from '../static/popup/left.svg'
 import popupRight from '../static/popup/right.svg'
@@ -172,22 +171,20 @@ import copy from '@/static/nets/copy.svg'
 
 export default {
   name: "Nets",
-  props: {
-    nets: []
-  },
-  data(){
-    return{
-      bottom,
-      rings, popupLeft, popupRight, arrowDown, blockTime, arrowDownDark,
-      whiteDarkBlur, whiteBlur, violet, violet_p, net_k, copy,
-      sliderData: [],
-      sliderDataGraph: [],
-      current: 0,
-      netsToCalc: [],
-      netsParse: []
-    }
-  },
+  data: () => ({
+    bottom,
+    rings, popupLeft, popupRight, arrowDown, blockTime, arrowDownDark,
+    whiteDarkBlur, whiteBlur, violet, violet_p, net_k, copy,
+    sliderData: [],
+    sliderDataGraph: [],
+    current: 0,
+    netsToCalc: [],
+    netsParse: [],
+    nets: [],
+  }),
+
   methods: {
+
     setCurrent(e){
       const netsItem = document.querySelectorAll('.nets-popup__top-slider__wrapper-item');
       const popupStat = document.querySelectorAll('.nets-popup__stat');
@@ -347,7 +344,6 @@ export default {
 
       let netsItem = document.querySelectorAll('.nets-popup__top-slider__wrapper-item')
       let netsPopupStat = document.querySelectorAll('.nets-popup__stat')
-
       for(let i=0; i < netsItem.length; i++) {
         if(this.netsParse[i].title === coin){
           this.current = i
@@ -357,31 +353,31 @@ export default {
         netsItem[i].classList.remove('prev') || netsItem[i].classList.remove('next') || netsItem[i].classList.remove('left') || netsItem[i].classList.remove('center') || netsItem[i].classList.remove('right') || netsItem[i].classList.remove('current');
         netsPopupStat[i].classList.remove('current')
       }
-      for(let i=0; i <= this.current; i++){
-        if(this.netsParse[i].title !== coin){
-          netsItem[i].classList.add('prev')
+      for(let j=0; j <= this.current; j++){
+        if(this.netsParse[j].title !== coin){
+          netsItem[j].classList.add('prev')
         } else {
-          if(i <= this.netsParse.length-3){
-            netsItem[i].classList.add('current')
-            netsItem[i].classList.add('left')
-            netsItem[i+1].classList.add('center')
-            netsItem[i+2].classList.add('right')
-            netsPopupStat[i].classList.add('current')
-          } else if(i <= this.netsParse.length-2){
-            netsItem[i].classList.add('current')
-            netsItem[i].classList.add('center')
-            netsItem[i-1].classList.add('left')
-            netsItem[i+1].classList.add('right')
-            netsItem[i-1].classList.remove('prev')
-            netsPopupStat[i].classList.add('current')
-          } else if(i <= this.netsParse.length-1){
-            netsItem[i].classList.add('current')
-            netsItem[i].classList.add('right')
-            netsItem[i-1].classList.add('center')
-            netsItem[i-2].classList.add('left')
-            netsItem[i-1].classList.remove('prev')
-            netsItem[i-2].classList.remove('prev')
-            netsPopupStat[i].classList.add('current')
+          if(j <= this.netsParse.length-3){
+            netsItem[j].classList.add('current')
+            netsItem[j].classList.add('left')
+            netsItem[j+1].classList.add('center')
+            netsItem[j+2].classList.add('right')
+            netsPopupStat[j].classList.add('current')
+          }else if (j <= this.netsParse.length-2){
+            netsItem[j].classList.add('current')
+            netsItem[j].classList.add('center')
+            netsItem[j-1].classList.add('left')
+            netsItem[j+1].classList.add('right')
+            netsItem[j-1].classList.remove('prev')
+            netsPopupStat[j].classList.add('current')
+          }else if(j <= this.netsParse.length-1){
+            netsItem[j].classList.add('current')
+            netsItem[j].classList.add('right')
+            netsItem[j-1].classList.add('center')
+            netsItem[j-2].classList.add('left')
+            netsItem[j-1].classList.remove('prev')
+            netsItem[j-2].classList.remove('prev')
+            netsPopupStat[j].classList.add('current')
           }
 
         }
@@ -410,45 +406,41 @@ export default {
       const calc = document.querySelectorAll('.calc-validator')[0]
       calc.style.display = 'flex'
     },
+    setStartCalc() {
+      this.netsToCalc = [
+        {
+          'img': this.netsParse[this.current].img,
+          'title': this.netsParse[this.current].title,
+          'fee': this.netsParse[this.current].annual_comission,
+          'course': this.netsParse[this.current].price,
+          'kepler_link': this.netsParse[this.current].kepler_link,
+          'adres': this.netsParse[this.current].adres,
+          'token': this.netsParse[this.current].token,
+          'cosmostation': this.netsParse[this.current].cosmostation,
+          'desmos_link': this.nets[this.current].desmos_link,
+          'pingpub_link': this.nets[this.current].pingpub_link,
+          'ready': false
+        }
+      ]
+    },
     round(number){
       return +number.toFixed(4);
     }
   },
   async created() {
-    this.netsParse = this.nets
-    this.netsToCalc = [
-      {
-        'img': this.netsParse[this.current].img,
-        'title': this.netsParse[this.current].title,
-        'fee': this.netsParse[this.current].annual_comission,
-        'course': this.netsParse[this.current].price,
-        'kepler_link': this.netsParse[this.current].kepler_link,
-        'adres': this.netsParse[this.current].adres,
-        'token': this.netsParse[this.current].token,
-        'cosmostation': this.netsParse[this.current].cosmostation,
-        'desmos_link': this.nets[this.current].desmos_link,
-        'pingpub_link': this.nets[this.current].pingpub_link,
-        'ready': false
-      }
-    ]
-
-
 
   },
-  async mounted() {
-    // setTimeout(()=>{
-    //   let arrowsTop = document.querySelectorAll('.course-arrow__top')
-    //   let arrowsBottom = document.querySelectorAll('.course-arrow__bottom')
-    //   for(let i=0; i < this.nets.length; i++){
-    //     if(parseFloat(this.nets[i].fee)>=0){
-    //       arrowsTop[i].style.transform = 'rotate(180deg)'
-    //       arrowsBottom[i].style.transform = 'rotate(180deg)'
-    //     } else {
-    //       arrowsTop[i].style.transform = 'rotate(0deg)'
-    //       arrowsBottom[i].style.transform = 'rotate(0deg)'
-    //     }
-    //   }
-    // }, 10000)
+  watch: {
+    __netsCount() {
+      this.nets = this.$store.state.nets.nets
+      this.netsParse = this.$store.state.nets.nets
+      this.setStartCalc()
+    }
+  },
+  computed: {
+    __netsCount() {
+      return this.$store.state.nets.nets.length
+    }
   }
 }
 </script>

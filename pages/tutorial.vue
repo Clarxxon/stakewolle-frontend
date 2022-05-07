@@ -205,13 +205,13 @@
           </li>
         </ul>
       </div>
-      <img class="delegate-tutorial-footer-bg" src="../static/very-big-pink.png" alt="">
+      <img class="delegate-tutorial-footer-bg" src="../static/very-big-pink.webp" alt="">
     </section>
     <section id="tutorial-slider">
       <div class="tutorial-slider">
         <img class="tutorial-slider-k" :src="roundK" alt="">
-        <img class="tutorial-slider-blur" src="../static/tutorial-slider-blur.png" alt="">
-        <img class="tutorial-slider-bottom" src="../static/tutorial-slider-bottom.png" alt="">
+        <img class="tutorial-slider-blur" src="../static/tutorial-slider-blur.webp" alt="">
+        <img class="tutorial-slider-bottom" src="../static/tutorial-slider-bottom.webp" alt="">
         <img class="tutorial-slider-top-line" src="../static/soon-validators/bottom-line.png" alt="">
         <img class="tutorial-slider-bottom-line" src="../static/soon-validators/bottom-line.png" alt="">
         <div v-if="kepler || cosmostation" class="tutorial-slider-wrapper">
@@ -287,14 +287,14 @@ import '../static/fonts/osanscondensed/osanscondensed.css';
 import '../static/fonts/comfortaa/comfortaa.css';
 import '../static/fonts/acrom/stylesheet.css';
 import "../static/styles/tutorial.scss";
-import powered from '../static/powered-by-akash.png';
+import powered from '../static/powered-by-akash.webp';
 import round from "../static/top-img/info-violet.svg";
 import star from "@/static/orange-star.svg";
 import roundWhite from "../static/jar.svg";
 import blurWhite from "@/static/blur-white.svg";
-import orangeBg from '../static/top-img/bg-orange.png';
+import orangeBg from '../static/top-img/bg-orange.webp';
 import mainreact from '../static/Main round (5).svg';
-import darkBg from '../static/top-img/bg-dark.png';
+import darkBg from '../static/top-img/bg-dark.webp';
 import darkInside from '../static/redesign/Round violet (3).svg';
 import orangeInside from '../static/Round orange (9).svg';
 import whiteInside from '../static/top-img/white-inside.svg';
@@ -303,7 +303,7 @@ import outsideOrange from '../static/top-img/outside-orange.svg';
 import outsideSif from '../static/redesign/Round violet (16).svg';
 import outsideBigWhite from '../static/redesign/Component 19.svg';
 import outsideViolet from '../static/top-img/outside-violet.svg';
-import bigBgPink from '../static/tutorial-big-pink.png'
+import bigBgPink from '../static/tutorial-big-pink.webp'
 import gg from "static/globe-grid 1.svg";
 import shield from "static/shield 1.svg";
 import timer from "static/24-hours 1.svg";

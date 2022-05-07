@@ -6,17 +6,17 @@
     </div>
     <div class="mobile-calculator__top">
       <button @click="toLeft" class="mobile-calculator__top-btn mobile-calculator__top-btn__left">
-        <img :src="arrowLeft" alt="">
+        <img :src="arrowLeft" alt="image"/>
       </button>
       <button @click="toRight" class="mobile-calculator__top-btn mobile-calculator__top-btn__right">
-        <img :src="arrowRight" alt="">
+        <img :src="arrowRight" alt="image"/>
       </button>
-      <div @click="sliderClick" v-for="i in netsParse" :class="i.calc_class_slider_mobile">
-        <img :src="i.img" alt="">
+      <div @click="sliderClick" v-for="i in netsParse" :class="i.netsClass.calc_class_slider_mobile">
+        <img :src="i.img" alt="image"/>
       </div>
     </div>
     <div class="mobile-calculator__info">
-      <div v-for="i in netsParse" :class="i.calc_class_info_mobile">
+      <div v-for="i in netsParse" :class="i.netsClass.calc_class_info_mobile">
         <div class="mobile-calculator__info-item__top">
           <p>{{ $t('calculator.how_many') }}<span>{{i.token}}</span>{{ $t('calculator.do_you') }}?</p>
           <p>{{ $t('calculator.year_profit') }}</p>
@@ -56,22 +56,22 @@
 </template>
 
 <script>
-import Akash from "@/static/nets/Akash.png"
-import BandProtocol from "@/static/nets/BandProtocol.png"
-import CertiK from "@/static/nets/CertiK.png"
-import Comdex from "@/static/nets/Comdex.png"
-import Cosmos from "@/static/nets/Cosmos.png"
-import Desmos from "@/static/nets/Desmos.png"
-import eMoney from "@/static/nets/eMoney.png"
-import Iris from "@/static/nets/Iris.png"
-import Juno from "@/static/nets/Juno.png"
-import Kava from "@/static/nets/Kava.png"
-import Ki from "@/static/nets/Ki.png"
-import Mediblock from "@/static/nets/Mediblock.png"
-import Osmosis from "@/static/nets/Osmosis.png"
-import Persistence from "@/static/nets/Persistence.png"
-import SecretNetwork from "@/static/nets/SecretNetwork.png"
-import SifChain from "@/static/nets/SifChain.png"
+import Akash from "@/static/nets/Akash.webp"
+import BandProtocol from "@/static/nets/BandProtocol.webp"
+import CertiK from "@/static/nets/CertiK.webp"
+import Comdex from "@/static/nets/Comdex.webp"
+import Cosmos from "@/static/nets/Cosmos.webp"
+import Desmos from "@/static/nets/Desmos.webp"
+import eMoney from "@/static/nets/eMoney.webp"
+import Iris from "@/static/nets/Iris.webp"
+import Juno from "@/static/nets/Juno.webp"
+import Kava from "@/static/nets/Kava.webp"
+import Ki from "@/static/nets/Ki.webp"
+import Mediblock from "@/static/nets/Mediblock.webp"
+import Osmosis from "@/static/nets/Osmosis.webp"
+import Persistence from "@/static/nets/Persistence.webp"
+import SecretNetwork from "@/static/nets/SecretNetwork.webp"
+import SifChain from "@/static/nets/SifChain.webp"
 import arrowLeft from '../../static/mobile/left.svg'
 import arrowRight from '../../static/mobile/right.svg'
 export default {
@@ -83,14 +83,9 @@ export default {
       Osmosis, Persistence, SecretNetwork, SifChain,
       arrowLeft, arrowRight,
       current: 0,
-      netsParse: []
+      netsParse: [],
+      nets: [],
     }
-  },
-  props: {
-    nets: []
-  },
-  created() {
-    this.netsParse = this.nets
   },
   methods: {
     openSlide (link) {
@@ -220,24 +215,35 @@ export default {
     },
     round(number){
       return +number.toFixed(4);
+    },
+    async setStartValues(){
+      const edTokens = document.querySelectorAll('.mobile-calculator .ed-tokens')
+      const emTokens = document.querySelectorAll('.mobile-calculator .em-tokens')
+      const egTokens = document.querySelectorAll('.mobile-calculator .eg-tokens')
+      const edPrice = document.querySelectorAll('.mobile-calculator .ed-price')
+      const emPrice = document.querySelectorAll('.mobile-calculator .em-price')
+      const egPrice = document.querySelectorAll('.mobile-calculator .eg-price')
+
+      for(let i=0; i<this.netsParse.length-1; i++){
+        edTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/365)
+        emTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/12)
+        egTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/1)
+
+        edPrice[i].innerText = Math.floor((Math.floor(((10000/100)*this.netsParse[i].annual_comission)/365))*this.netsParse[this.current].price)
+        emPrice[i].innerText = Math.floor((Math.floor(((10000/100)*this.netsParse[i].annual_comission)/12))*this.netsParse[this.current].price)
+        egPrice[i].innerText = Math.floor((Math.floor(((10000/100)*this.netsParse[i].annual_comission)/1))*this.netsParse[this.current].price)
+      }
+    },
+  },
+  watch: {
+    __netsCount() {
+      this.nets = this.$store.state.nets.nets
+      this.netsParse = this.$store.state.nets.nets
     }
   },
-  async mounted(){
-    const edTokens = document.querySelectorAll('.mobile-calculator .ed-tokens')
-    const emTokens = document.querySelectorAll('.mobile-calculator .em-tokens')
-    const egTokens = document.querySelectorAll('.mobile-calculator .eg-tokens')
-    const edPrice = document.querySelectorAll('.mobile-calculator .ed-price')
-    const emPrice = document.querySelectorAll('.mobile-calculator .em-price')
-    const egPrice = document.querySelectorAll('.mobile-calculator .eg-price')
-
-    for(let i=0; i<this.netsParse.length-1; i++){
-      edTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/365)
-      emTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/12)
-      egTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/1)
-
-      edPrice[i].innerText = Math.floor((Math.floor(((10000/100)*this.netsParse[i].annual_comission)/365))*this.netsParse[this.current].price)
-      emPrice[i].innerText = Math.floor((Math.floor(((10000/100)*this.netsParse[i].annual_comission)/12))*this.netsParse[this.current].price)
-      egPrice[i].innerText = Math.floor((Math.floor(((10000/100)*this.netsParse[i].annual_comission)/1))*this.netsParse[this.current].price)
+  computed: {
+    __netsCount() {
+      return this.$store.state.nets.nets.length
     }
   }
 }

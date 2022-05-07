@@ -9,7 +9,7 @@
         </div>
         <h3>{{ $t('popup.title') }}</h3>
         <p class="popup-copy">{{$t('popup.copy')}}</p>
-        <div class="calculator-token">
+        <div class="calculator-token" v-if="netsParse.length">
           <p>{{ netsParse[current].adres }}</p>
           <input :value="netsParse[current].adres" tabindex='-1' contenteditable="true" type="text" class="calculator-token-input">
           <button @click="copyAdres">
@@ -24,7 +24,7 @@
             <img :src="popupRight" alt="">
           </button>
           <div class="nets-popup__top-slider__wrapper">
-            <div v-for="i in netsParse" :class="i.nets_popup_class_mobile">
+            <div v-for="i in netsParse" :class="i.netsClass.nets_popup_class_mobile">
               <div class="nets-popup__top-slider__wrapper-item__dark"></div>
               <div class="nets-popup__top-slider__wrapper-item__background">
                 <img :src="i.img" alt="">
@@ -45,7 +45,7 @@
             </div>
           </div>
         </div>
-        <div v-for="i in netsParse" :class="i.nets_stat_class">
+        <div v-for="i in netsParse" :class="i.netsClass.nets_stat_class">
           <div class="nets-popup__stat-title">
             <div class="nets-popup__stat-title__blockchain">
               <p class="nets-popup__stat-title__blockchain-title">{{ $t('popup.blockchain') }}</p>
@@ -132,12 +132,12 @@
           <button @click="toRight" class="mobile-stacking__slider-top__btn-right">
             <img :src="arrowRight" alt="">
           </button>
-          <div @click="sliderClick" v-for="i in netsParse" :class="i.nets_class_slider_mobile">
+          <div @click="sliderClick" v-for="i in netsParse" :class="i.netsClass.nets_class_slider_mobile">
             <img :src="i.img" alt="">
           </div>
         </div>
         <div class="mobile-stacking__slider-info">
-          <div v-for="i in netsParse" :class="i.nets_info_class_mobile">
+          <div v-for="i in netsParse" :class="i.netsClass.nets_info_class_mobile">
             <p class="mobile-stacking__slider-info__item-title">{{ i.title }}</p>
             <p v-if="$i18n.locale !== 'en'" class="mobile-stacking__slider-info__item-subtitle">{{ i.subtitle }}</p>
             <p v-if="$i18n.locale !== 'es'" class="mobile-stacking__slider-info__item-subtitle">{{ i.subtitle_en }}</p>
@@ -169,9 +169,6 @@ import copy from '@/static/nets/copy.svg'
 
 export default {
   name: "mobileStacking",
-  props: {
-    nets: []
-  },
   data(){
     return{
       copy,
@@ -181,7 +178,8 @@ export default {
       sliderData: [],
       sliderDataGraph: [],
       netsToCalc: [],
-      netsParse: []
+      netsParse: [],
+      nets: [],
     }
   },
   async mounted() {
@@ -196,38 +194,7 @@ export default {
     //     arrowsBottom[i].style.transform = 'rotate(0deg)'
     //   }
     // }
-    this.netsToCalc = [
-      {
-        'img': this.netsParse[this.current].img,
-        'title': this.netsParse[this.current].title,
-        'percent': this.netsParse[this.current].annual_comission,
-        'fee': this.netsParse[this.current].fee,
-        'course': this.netsParse[this.current].price,
-        'adres': this.netsParse[this.current].adres,
-        'token': this.netsParse[this.current].token,
-        'cosmostation': this.netsParse[this.current].cosmostation,
-        'desmos_link': this.nets[this.current].desmos_link,
-        'pingpub_link': this.nets[this.current].pingpub_link,
-      }
-    ]
-  },
-  created(){
-    this.netsParse = this.nets
-    this.netsToCalc = [
-      {
-        'img': this.netsParse[this.current].img,
-        'title': this.netsParse[this.current].title,
-        'percent': this.netsParse[this.current].annual_comission,
-        'fee': this.netsParse[this.current].fee,
-        'course': this.netsParse[this.current].price,
-        'adres': this.netsParse[this.current].adres,
-        'token': this.netsParse[this.current].token,
-        'cosmostation': this.netsParse[this.current].cosmostation,
-        'desmos_link': this.nets[this.current].desmos_link,
-        'pingpub_link': this.nets[this.current].pingpub_link,
-        'ready': false
-      }
-    ]
+
   },
   methods: {
     copyAdres(){
@@ -321,8 +288,10 @@ export default {
         popupStat[this.current].classList.remove('current');
         netsItem[this.current+1].classList.add('current');
         popupStat[this.current+1].classList.add('current');
-        netsNext[0].classList.remove('next');
-        netsNext[0].classList.add('current');
+        if (netsNext[0]) {
+          netsNext[0].classList.remove('next');
+          netsNext[0].classList.add('current');
+        }
       }
 
       let netsCount = this.nets.length;
@@ -356,15 +325,16 @@ export default {
       const netsItem = document.querySelectorAll('.nets-popup__top-slider__wrapper-item');
       const netsPrev = document.querySelectorAll('.nets-popup__top-slider__wrapper-item.prev');
       const popupStat = document.querySelectorAll('.nets-popup__stat')
-
       if(this.current>0){
         netsItem[this.current].classList.remove('current');
         netsItem[this.current].classList.add('next');
         popupStat[this.current].classList.remove('current');
         netsItem[this.current-1].classList.add('current');
         popupStat[this.current-1].classList.add('current');
-        netsPrev[netsPrev.length-1].classList.remove('prev')
-        netsPrev[netsPrev.length-1].classList.add('current')
+        if (netsPrev.length) {
+          netsPrev[netsPrev.length-1].classList.remove('prev')
+          netsPrev[netsPrev.length-1].classList.add('current')
+        }
       }
 
 
@@ -531,10 +501,23 @@ export default {
         }
       ]
       const calc = document.querySelector('.calc-validator')
-      calc.style.display = 'flex'
+      if (calc) calc.style.display = 'flex'
     },
+
     round(number){
       return +number.toFixed(4);
+    }
+  },
+  watch: {
+    __netsCount() {
+      this.nets = this.$store.state.nets.nets
+      this.netsParse = this.$store.state.nets.nets
+      this.setCalc()
+    }
+  },
+  computed: {
+    __netsCount() {
+      return this.$store.state.nets.nets.length
     }
   }
 }

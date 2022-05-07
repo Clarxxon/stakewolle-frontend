@@ -111,12 +111,12 @@
 </template>
 
 <script>
-import year_2021 from '../../static/mobile/2021.png'
-import year_2022 from '../../static/mobile/2022.png'
-import year_big from '../../static/mobile/2020.png'
+import year_2021 from '../../static/mobile/2021.webp'
+import year_2022 from '../../static/mobile/2022.webp'
+import year_big from '../../static/mobile/2020.webp'
 import star from '../../static/stages/star.svg'
 import roundViolet from '../../static/stages/round-violet.svg'
-import roundWhite from '../../static/mobile/years-wh.png'
+import roundWhite from '../../static/mobile/years-wh.webp'
 
 export default {
   name: "mobileYears",

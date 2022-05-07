@@ -1,8 +1,8 @@
 <template>
   <div>
     <div><img src="https://mc.yandex.ru/watch/86787478" style="position:absolute; left:-9999px;" alt="" /></div>
-    <Desktop v-bind:delegates="delegates" v-bind:nets="nets" v-bind:netsToValidators="netsToValidators" v-if="desktop"></Desktop>
-    <mobile v-bind:delegates="delegates" v-bind:nets="nets" v-bind:netsToValidators="netsToValidators" v-if="mobile"></mobile>
+    <Desktop :delegates="delegates" v-bind:netsToValidators="netsToValidators" v-if="desktop"></Desktop>
+    <mobile v-bind:delegates="delegates" :nets="$store.state.nets.nets" v-bind:netsToValidators="netsToValidators" v-if="mobile"></mobile>
     <script type="text/javascript" >
       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
@@ -24,47 +24,51 @@ import "../static/fonts/opensans/opensans.css";
 import "../static/fonts/osanscondensed/osanscondensed.css";
 import "../static/fonts/comfortaa/comfortaa.css";
 import "../static/fonts/acrom/stylesheet.css";
+import Akash from "../static/nets/Akash.webp";
+import BandProtocol from "../static/nets/BandProtocol.webp";
+import CertiK from "../static/nets/CertiK.webp";
+import Comdex from "../static/nets/Comdex.webp";
+import Cosmos from "../static/nets/Cosmos.webp";
+import Desmos from "../static/nets/Desmos.webp";
+import eMoney from "../static/nets/eMoney.webp";
+import Iris from "../static/nets/Iris.webp";
+import Juno from "../static/nets/Juno.webp";
+import Kava from "../static/nets/Kava.webp";
+import Ki from "../static/nets/Ki.webp";
+import Mediblock from "../static/nets/Mediblock.webp";
+import Osmosis from "../static/nets/Osmosis.webp";
+import Persistence from "../static/nets/Persistence.webp";
+import SecretNetwork from "../static/nets/SecretNetwork.webp";
+import SifChain from "../static/nets/SifChain.webp";
+import Rizon from "../static/nets/Rizon.webp";
+import BitSong from "../static/nets/BitSong.webp";
+import LikeCoin from "../static/nets/LikeKoin.webp";
+import Chihua from "../static/nets/Chihua.webp";
+import Lum from "../static/nets/Lum.webp";
+import Sentinel from "../static/nets/Sentinel.webp";
+import Cheqd from "../static/nets/Cheqd.webp";
+import Dig from "../static/nets/Dig.webp";
+import Starname from '../static/nets/starname.webp';
+import Stargaze from '../static/nets/stargaze.webp';
+import Mina from '../static/nets/mina.webp';
+import Celo from '../static/nets/celo.webp';
+import Casper from '../static/nets/casper.webp';
+import Polygon from '../static/nets/polygon.webp';
+import Near from '../static/nets/Near.webp';
+import Fantom from '../static/nets/Fantom.webp';
+import Nomic from '../static/nets/Nomic.webp'
+import Gravity from '../static/nets/Gravity.webp'
+import Konstellation from '../static/nets/Konstellation.webp'
+import Cerberus from '../static/nets/ethereum (2) 3.webp'
+import Ixo from '../static/nets/ixo.webp'
+import Crescent from '../static/nets/Crescent.webp'
+import Fetch from '../static/nets/Fetch.webp'
+import Vidulum from '../static/nets/vidulum.webp'
+import Injective from '../static/nets/injective.webp'
+import Meme from '../static/nets/Meme.webp'
+
 import Desktop from "./desktop";
 import Mobile from "./mobile";
-import Akash from "@/static/nets/Akash.png";
-import BandProtocol from "@/static/nets/BandProtocol.png";
-import CertiK from "@/static/nets/CertiK.png";
-import Comdex from "@/static/nets/Comdex.png";
-import Cosmos from "@/static/nets/Cosmos.png";
-import Desmos from "@/static/nets/Desmos.png";
-import eMoney from "@/static/nets/eMoney.png";
-import Iris from "@/static/nets/Iris.png";
-import Juno from "@/static/nets/Juno.png";
-import Kava from "@/static/nets/Kava.png";
-import Ki from "@/static/nets/Ki.png";
-import Mediblock from "@/static/nets/Mediblock.png";
-import Osmosis from "@/static/nets/Osmosis.png";
-import Persistence from "@/static/nets/Persistence.png";
-import SecretNetwork from "@/static/nets/SecretNetwork.png";
-import SifChain from "@/static/nets/SifChain.png";
-import Rizon from "@/static/nets/Rizon.png";
-import BitSong from "@/static/nets/BitSong.png";
-import LikeCoin from "@/static/nets/LikeKoin.png";
-import Chihua from "@/static/nets/Chihua.png";
-import Lum from "@/static/nets/Lum.png";
-import Sentinel from "@/static/nets/Sentinel.png";
-import Cheqd from "@/static/nets/Cheqd.png";
-import Dig from "@/static/nets/Dig.png";
-import Starname from '../static/nets/starname.png';
-import Stargaze from '../static/nets/stargaze.png';
-import Mina from '../static/nets/mina.png';
-import Celo from '../static/nets/celo.png';
-import Casper from '../static/nets/casper.png';
-import Polygon from '../static/nets/polygon.png';
-import Near from '../static/nets/Near.png';
-import Fantom from '../static/nets/Fantom.png';
-import Nomic from '../static/nets/Nomic.png'
-import Gravity from '../static/nets/Gravity.png'
-import Konstellation from '../static/nets/Konstellation.png'
-import Cerberus from '../static/nets/ethereum (2) 3.png'
-import Ixo from '../static/nets/ixo.png'
-import Crescent from '../static/nets/Crescent.png'
-import Fetch from '../static/nets/Fetch.png'
 
 export default {
   name: 'IndexPage',
@@ -1041,7 +1045,8 @@ export default {
         'h24_range': [],
         'stakewolle_comission': '0%',
         'annual_comission': '8',
-        'kepler_link': 'https://ping.pub/cheqd/staking/cheqdvaloper1ny8gd9tsyqhm56agp4vkpa6fldr2n4guthcvfj',
+        'kepler_link': '-',
+        'pingpub_link': 'https://ping.pub/cheqd/staking/cheqdvaloper1ny8gd9tsyqhm56agp4vkpa6fldr2n4guthcvfj',
         'coingecko_status': true,
         'ready_to_look': false,
         'adres': 'cheqdvaloper1ny8gd9tsyqhm56agp4vkpa6fldr2n4guthcvfj',
@@ -1350,7 +1355,118 @@ export default {
         'bonded_ratio': '22.62',
         'apy': '',
         'price_dynamics': false
-      }
+      },
+      {
+        'coin': 'vidulum',
+        'img': Vidulum,
+        'title': 'Vidulum',
+        'short_title': 'Vidulum',
+        'subtitle': 'Держите, зарабатывайте и владейте своим криптоактивы некастодиальным способом.',
+        'subtitle_en': 'Hold, earn, and own your crypto assets in non-custodial fashion.',
+        'popup_class_slider': 'nets-popup__top-slider__wrapper-item next',
+        'calc_class_slider_desktop': 'calculator-wrapper__item next',
+        'calc_info_class_desktop': 'calculator-wrapper__info',
+        'calc_class_slider_mobile': 'mobile-calculator__top-item next',
+        'calc_class_info_mobile': 'mobile-calculator__info-item',
+        'nets_class_slider_mobile': 'mobile-stacking__slider-top__item next',
+        'nets_info_class_mobile': 'mobile-stacking__slider-info__item',
+        'nets_popup_class_mobile': 'nets-popup__top-slider__wrapper-item next',
+        'token': 'VDL',
+        'fee': '0',
+        'week_data': [0.01031,0.01052,0.01053,0.01044,0.01091,0.01102,0.01108,0.01101,0.01097,0.01108,0.01296,0.01315,0.01273,0.01274,0.01186,0.01007,0.01111,0.01151,0.01160,0.01159,0.01176,0.01114,0.01046],
+        'nets_stat_class': 'nets-popup__stat',
+        'block_time': '',
+        'market_cap': '?',
+        'h24_vol': '',
+        'price': '0.0002',
+        'h24_range': [],
+        'stakewolle_comission': '0%',
+        'annual_comission': '18.76',
+        'kepler_link': '-',
+        'pingpub_link': 'https://ping.pub/vidulum/staking/vdlvaloper12mzd08n2ut7qwfmchezk2hqkh644lvd2tngequ',
+        'coingecko_status': true,
+        'ready_to_look': false,
+        'adres': 'vdlvaloper12mzd08n2ut7qwfmchezk2hqkh644lvd2tngequ',
+        'cosmostation': '-',
+        'inflation': '11.07',
+        'bonded_ratio': '58.87',
+        'apy': '',
+        'price_dynamics': false
+      },
+      {
+        'coin': 'injective-protocol',
+        'img': Injective,
+        'title': 'Injective',
+        'short_title': 'Injective',
+        'subtitle': 'Создайте любой финансовый рынок, быстрый, кроссчейн, с низкой комиссией, безопасный и полностью децентрализованный протокол обмена.',
+        'subtitle_en': 'Create any financial market fast, cross-chain, low fee, secure, and fully decentralized exchange protocol.',
+        'popup_class_slider': 'nets-popup__top-slider__wrapper-item next',
+        'calc_class_slider_desktop': 'calculator-wrapper__item next',
+        'calc_info_class_desktop': 'calculator-wrapper__info',
+        'calc_class_slider_mobile': 'mobile-calculator__top-item next',
+        'calc_class_info_mobile': 'mobile-calculator__info-item',
+        'nets_class_slider_mobile': 'mobile-stacking__slider-top__item next',
+        'nets_info_class_mobile': 'mobile-stacking__slider-info__item',
+        'nets_popup_class_mobile': 'nets-popup__top-slider__wrapper-item next',
+        'token': 'INJ',
+        'fee': '0',
+        'week_data': [0.01031,0.01052,0.01053,0.01044,0.01091,0.01102,0.01108,0.01101,0.01097,0.01108,0.01296,0.01315,0.01273,0.01274,0.01186,0.01007,0.01111,0.01151,0.01160,0.01159,0.01176,0.01114,0.01046],
+        'nets_stat_class': 'nets-popup__stat',
+        'block_time': '',
+        'market_cap': '?',
+        'h24_vol': '',
+        'price': '0.0002',
+        'h24_range': [],
+        'stakewolle_comission': '0%',
+        'annual_comission': '14.69',
+        'kepler_link': '-',
+        'pingpub_link': 'https://ping.pub/injective/staking/injvaloper1kpfxtqt5cmlew46dem32fqlk5g6k4wyueh4szu',
+        'coingecko_status': true,
+        'ready_to_look': false,
+        'adres': 'injvaloper1kpfxtqt5cmlew46dem32fqlk5g6k4wyueh4szu',
+        'cosmostation': '-',
+        'inflation': '5.98',
+        'bonded_ratio': '40.63',
+        'apy': '',
+        'price_dynamics': false
+      },
+      {
+        'coin': 'degenerator',
+        'img': Meme,
+        'title': 'Meme',
+        'short_title': 'Meme',
+        'subtitle': 'Держите, зарабатывайте и владейте своим криптоактивы некастодиальным способом.',
+        'subtitle_en': 'Create any financial market fast, cross-chain, low fee, secure, and fully decentralized exchange protocol.',
+        'popup_class_slider': 'nets-popup__top-slider__wrapper-item next',
+        'calc_class_slider_desktop': 'calculator-wrapper__item next',
+        'calc_info_class_desktop': 'calculator-wrapper__info',
+        'calc_class_slider_mobile': 'mobile-calculator__top-item next',
+        'calc_class_info_mobile': 'mobile-calculator__info-item',
+        'nets_class_slider_mobile': 'mobile-stacking__slider-top__item next',
+        'nets_info_class_mobile': 'mobile-stacking__slider-info__item',
+        'nets_popup_class_mobile': 'nets-popup__top-slider__wrapper-item next',
+        'token': 'MEME',
+        'fee': '5',
+        'week_data': [0.01031,0.01052,0.01053,0.01044,0.01091,0.01102,0.01108,0.01101,0.01097,0.01108,0.01296,0.01315,0.01273,0.01274,0.01186,0.01007,0.01111,0.01151,0.01160,0.01159,0.01176,0.01114,0.01046],
+        'nets_stat_class': 'nets-popup__stat',
+        'block_time': '',
+        'market_cap': '?',
+        'h24_vol': '',
+        'price': '0',
+        'h24_range': [],
+        'stakewolle_comission': '',
+        'annual_comission': '14.70',
+        'kepler_link': '-',
+        'pingpub_link': 'https://ping.pub/meme/staking/memevaloper1dshysamgzd0d7meftn6npf9pxyskxh49mdc68a',
+        'coingecko_status': true,
+        'ready_to_look': false,
+        'adres': 'memevaloper1dshysamgzd0d7meftn6npf9pxyskxh49mdc68a',
+        'cosmostation': '-',
+        'inflation': '16.32',
+        'bonded_ratio': '7.63',
+        'apy': '',
+        'price_dynamics': false
+      },
     ]
     // Текущая дата и вчерашняя - для отдельных запросов из Coingecko
     //const today = Math.floor(new Date().getTime() / 1000);
@@ -1360,11 +1476,15 @@ export default {
 
   methods: {
     round(number){
-      console.log(number)
       return +number.toFixed(4);
+    },
+    async fetchNets() {
+      const nets = (await this.$host.get('/api/net-card')).data
+      return nets
     }
   },
   async mounted(){
+    this.fetchNets().then(nets => this.$store.commit('nets/saveNets', nets))
     if(window.innerWidth<=428){
       this.mobile = true
     } else {
@@ -1379,37 +1499,6 @@ export default {
         window.location.reload()
       }
     })
-
-    for(let i=0; i<this.nets.length; i++){
-      if(this.nets[i].inflation === '0' || this.nets[i].bonded_ratio === '-'){
-        this.nets[i].apy = '0'
-      } else {
-        this.nets[i].apy = this.round(parseFloat(this.nets[i].inflation)*1/(parseFloat(this.nets[i].bonded_ratio)/100))
-      }
-    }
-
-    for (let i=0; i < this.nets.length; i++){
-      if (this.nets[i].coingecko_status === true) {
-        let coinArray = []
-        let coin = await this.$axios.get('https://api.coingecko.com/api/v3/coins/'+this.nets[i].coin+'/market_chart?vs_currency=usd&days=1')
-        try{
-          for (let k=coin.data.prices.length-1; k >= 12; k-=12){
-            coinArray.push(this.round(coin.data.prices[k][1]))
-            this.nets[i].week_data = coinArray.reverse()
-          }
-          this.nets[i].price = this.round(coinArray.reverse()[coinArray.length-1])
-          this.nets[i].fee = this.round(this.round(coinArray.reverse()[coinArray.length-1]) - this.round(coinArray.reverse()[coinArray.length-2]))
-          this.nets[i].ready_to_look = true
-          if(this.nets[i].fee>=0){
-            this.nets[i].price_dynamics = true
-          } else {
-            this.nets[i].price_dynamics = false
-          }
-        } catch (e) {
-          console.log(e)
-        }
-      }
-    }
   }
 }
 </script>

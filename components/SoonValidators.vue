@@ -34,10 +34,10 @@
 </template>
 
 <script>
-import CertiK from '../static/nets/CertiK.png'
+import CertiK from '../static/nets/CertiK.webp'
 import sliderArrow from '../static/slider-arrow.svg'
-import validatorsBg2 from '../static/validators-bg2.png'
-import validatorsBg from '../static/validators-bg.png'
+import validatorsBg2 from '../static/validators-bg2.webp'
+import validatorsBg from '../static/validators-bg.webp'
 import bottomLine from '../static/soon-validators/bottom-line.png'
 import bottomWhite from '../static/soon-validators/bottom-white.svg'
 import roundOrangeBlur from '../static/soon-validators/round-orange-blur.svg'
