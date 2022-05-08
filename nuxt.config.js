@@ -78,7 +78,7 @@ export default {
               },
               welcome: {
                 staking_provider: 'staking provider hosted by professionals',
-                subtitle: 'The best lace for investors with different amounts of assets',
+                subtitle: 'The best place for investors with different amounts of assets',
                 more: 'Start staking',
                 commission: '0% commission until 2023'
               },
@@ -111,12 +111,12 @@ export default {
                 subtitle: 'Stakewolle is the best service for investors with assets from $1 to $1 billion. We provide the highest level of security, support and performance optimisation to protect your assets and receive a better return',
                 _01: 'We are actively engaged in the expansion of the new generation network and firmly believe in the future of decentralization',
                 _02: 'Modern encryption protocols provide a secure and stable infrastructure',
-                _03: 'Round-the-clock monitoring network and node updates so that you consistently recieve rewards'
+                _03: 'Round-the-clock monitoring network and node updates so that you consistently receive rewards'
               },
               contacts: {
                 title: 'Contact us if you:',
                 sub_01: 'Want to delegate money in the amount of $500.000',
-                sub_02: 'Want to recieve an excel report of delegates with the list of transactions for the taxes',
+                sub_02: 'Want to receive an excel report of delegates with the list of transactions for the taxes',
                 sub_03: 'Want to cooperate',
                 contact_us: 'Contact us',
                 name: 'Your name',
@@ -174,7 +174,7 @@ export default {
                 _09: 'Launching a Faucet Development of a system for automatic tracking of updates and proposals'
               },
               staking: 'Stake',
-              about_us_description: 'We are leading staking service providers for blockchain projects<br><br>Join our community to participate in the development of secure networks and receive revard',
+              about_us_description: 'We are leading staking service providers for blockchain projects<br><br>Join our community to participate in the development of secure networks and receive reward',
               tutorial: {
                 delegate: 'Delegate your ',
                 bracket_open: '(',
@@ -404,7 +404,7 @@ export default {
                       step_4: 'ГОТОВО!\n' +
                           'Подождите несколько секунд, после чего ваша транзакция делегирования будет обработана, теперь вы разместили $ATOM и получаете вознаграждение, поздравляем!\n' +
                           'Вы можете отслеживать свою делегацию Cosmos и награды в верхней части страницы панели инструментов Keplr.',
-                      subtitle: 'Теперь вы можете стэйкать!'
+                      subtitle: 'Поздравляем - Вы застейкали'
                     },
                     redelegate: {
                       title: 'Ределегирование на другого валидатора',

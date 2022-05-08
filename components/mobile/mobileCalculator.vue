@@ -18,7 +18,7 @@
     <div class="mobile-calculator__info">
       <div v-for="i in netsParse" :class="i.netsClass.calc_class_info_mobile">
         <div class="mobile-calculator__info-item__top">
-          <p>{{ $t('calculator.how_many') }}<span>{{i.token}}</span>{{ $t('calculator.do_you') }}?</p>
+          <p>{{ $t('calculator.how_many') }}<span>{{i.token}}</span>?</p>
           <p>{{ $t('calculator.year_profit') }}</p>
         </div>
         <div class="mobile-calculator__info-item__values">

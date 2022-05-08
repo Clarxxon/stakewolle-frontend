@@ -26,7 +26,7 @@
         <div class="calculator-wrapper__description">
           <div v-for="i in netsParse" :class="i.netsClass.calc_info_class_desktop">
             <div class="calculator-wrapper__info-header">
-              <p>{{ $t('calculator.how_many') }}<span>{{i.token}}</span>{{ $t('calculator.do_you') }}?</p>
+              <p>{{ $t('calculator.how_many') }}<span>{{i.token}}</span>?</p>
               <p>{{ $t('calculator.year_profit') }}</p>
             </div>
             <div class="calculator-wrapper__info-values">
