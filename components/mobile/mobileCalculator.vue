@@ -225,7 +225,7 @@ export default {
       const egPrice = document.querySelectorAll('.mobile-calculator .eg-price')
 
       for(let i=0; i<this.netsParse.length-1; i++){
-        edTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/365)
+        edTokens[i] ? edTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/365) : ''
         emTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/12)
         egTokens[i].innerText = Math.floor(((10000/100)*this.netsParse[i].annual_comission)/1)
 

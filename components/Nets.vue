@@ -344,14 +344,14 @@ export default {
 
       let netsItem = document.querySelectorAll('.nets-popup__top-slider__wrapper-item')
       let netsPopupStat = document.querySelectorAll('.nets-popup__stat')
-      for(let i=0; i < netsItem.length; i++) {
-        if(this.netsParse[i].title === coin){
-          this.current = i
+      for(let n=0; n < netsItem.length; n++) {
+        if(this.netsParse[n].title === coin){
+          this.current = n
         }
       }
-      for(let i=0; i < netsItem.length; i++) {
-        netsItem[i].classList.remove('prev') || netsItem[i].classList.remove('next') || netsItem[i].classList.remove('left') || netsItem[i].classList.remove('center') || netsItem[i].classList.remove('right') || netsItem[i].classList.remove('current');
-        netsPopupStat[i].classList.remove('current')
+      for(let z=0; z < netsItem.length; z++) {
+        netsItem[z].classList.remove('prev') || netsItem[z].classList.remove('next') || netsItem[z].classList.remove('left') || netsItem[z].classList.remove('center') || netsItem[z].classList.remove('right') || netsItem[z].classList.remove('current');
+        netsPopupStat[z].classList.remove('current')
       }
       for(let j=0; j <= this.current; j++){
         if(this.netsParse[j].title !== coin){
@@ -366,20 +366,23 @@ export default {
           }else if (j <= this.netsParse.length-2){
             netsItem[j].classList.add('current')
             netsItem[j].classList.add('center')
-            netsItem[j-1].classList.add('left')
-            netsItem[j+1].classList.add('right')
-            netsItem[j-1].classList.remove('prev')
-            netsPopupStat[j].classList.add('current')
+            if (netsItem[j-1]) {
+              netsItem[j-1].classList.add('left')
+              netsItem[j+1].classList.add('right')
+              netsItem[j-1].classList.remove('prev')
+              netsPopupStat[j].classList.add('current')
+            }
           }else if(j <= this.netsParse.length-1){
             netsItem[j].classList.add('current')
             netsItem[j].classList.add('right')
-            netsItem[j-1].classList.add('center')
-            netsItem[j-2].classList.add('left')
-            netsItem[j-1].classList.remove('prev')
-            netsItem[j-2].classList.remove('prev')
-            netsPopupStat[j].classList.add('current')
+            if (netsItem[j-1]) {
+              netsItem[j-1].classList.add('center')
+              netsItem[j-2]?.classList.add('left')
+              netsItem[j-1].classList.remove('prev')
+              netsItem[j-2]?.classList.remove('prev')
+            }
           }
-
+          netsPopupStat[j].classList.add('current')
         }
       }
       for(let k = this.current+3; k<=netsItem.length-1; k++){
