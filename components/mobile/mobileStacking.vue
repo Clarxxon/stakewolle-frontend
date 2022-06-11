@@ -24,7 +24,11 @@
             <img :src="popupRight" alt="">
           </button>
           <div class="nets-popup__top-slider__wrapper">
-            <div v-for="i in netsParse" :class="i.netsClass.nets_popup_class_mobile">
+            <div
+                v-for="(i, idx) in netsParse"
+                class="nets-popup__top-slider__wrapper-item"
+                :class="{'current': idx === 0, 'next': idx > 0}"
+            >
               <div class="nets-popup__top-slider__wrapper-item__dark"></div>
               <div class="nets-popup__top-slider__wrapper-item__background">
                 <img :src="i.img" alt="">
@@ -45,7 +49,11 @@
             </div>
           </div>
         </div>
-        <div v-for="i in netsParse" :class="i.netsClass.nets_stat_class">
+        <div
+            v-for="(i, idx) in netsParse"
+            class="nets-popup__stat"
+            :class="{'current': idx === 0}"
+        >
           <div class="nets-popup__stat-title">
             <div class="nets-popup__stat-title__blockchain">
               <p class="nets-popup__stat-title__blockchain-title">{{ $t('popup.blockchain') }}</p>
@@ -132,12 +140,26 @@
           <button @click="toRight" class="mobile-stacking__slider-top__btn-right">
             <img :src="arrowRight" alt="">
           </button>
-          <div @click="sliderClick" v-for="i in netsParse" :class="i.netsClass.nets_class_slider_mobile">
+          <div
+              @click="sliderClick"
+              v-for="(i, idx) in netsParse"
+              class="mobile-stacking__slider-top__item"
+              :class="{
+                'left current': idx === 0,
+                'center': idx === 1,
+                'right': idx === 2,
+                'next': idx === 3
+              }"
+          >
             <img :src="i.img" alt="">
           </div>
         </div>
         <div class="mobile-stacking__slider-info">
-          <div v-for="i in netsParse" :class="i.netsClass.nets_info_class_mobile">
+          <div
+              v-for="(i, idx) in netsParse"
+              class="mobile-stacking__slider-info__item"
+              :class="{'current': idx === 0}"
+          >
             <p class="mobile-stacking__slider-info__item-title">{{ i.title }}</p>
             <p v-if="$i18n.locale !== 'en'" class="mobile-stacking__slider-info__item-subtitle">{{ i.subtitle }}</p>
             <p v-if="$i18n.locale !== 'es'" class="mobile-stacking__slider-info__item-subtitle">{{ i.subtitle_en }}</p>

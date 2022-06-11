@@ -1,13 +1,13 @@
 export const state = () => ({
-		nets: []
+	nets: []
 })
 export const getters = {
-		nets(state) {
-				return state.nets
-		}
+	nets(state) {
+		return state.nets
+	}
 }
 export const mutations = {
-		saveNets(state, nets) {
-				state.nets = nets
-		}
+	saveNets(state, nets) {
+			state.nets = nets
+	},
 }

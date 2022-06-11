@@ -11,12 +11,26 @@
       <button @click="toRight" class="mobile-calculator__top-btn mobile-calculator__top-btn__right">
         <img :src="arrowRight" alt="image"/>
       </button>
-      <div @click="sliderClick" v-for="i in netsParse" :class="i.netsClass.calc_class_slider_mobile">
+      <div
+          @click="sliderClick"
+          v-for="(i, idx) in netsParse"
+          class="mobile-calculator__top-item"
+          :class="{
+            'left current': idx === 0,
+            'center': idx === 1,
+            'right': idx === 2,
+            'next': idx === 3
+          }"
+      >
         <img :src="i.img" alt="image"/>
       </div>
     </div>
     <div class="mobile-calculator__info">
-      <div v-for="i in netsParse" :class="i.netsClass.calc_class_info_mobile">
+      <div
+          v-for="(i, idx) in netsParse"
+          class="mobile-calculator__info-item"
+          :class="{'current': idx === 0}"
+      >
         <div class="mobile-calculator__info-item__top">
           <p>{{ $t('calculator.how_many') }}<span>{{i.token}}</span>?</p>
           <p>{{ $t('calculator.year_profit') }}</p>

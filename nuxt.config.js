@@ -24,7 +24,8 @@ export default {
       { rel: "canonical", href: "https://stakewolle.com/"},
     ],
     script: [
-      {async: true, src: "https://cdn.ampproject.org/v0.js"}
+      {async: true, src: "https://telegram.org/js/telegram-web-app.js"},
+      {async: true, src: "https://cdn.ampproject.org/v0.js"},
     ],
     noscript: [
       {style: [
@@ -45,7 +46,7 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    '~plugins/axios'
+    '~plugins/axios',
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

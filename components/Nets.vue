@@ -25,7 +25,13 @@
             <img :src="popupRight" alt="">
           </button>
           <div class="nets-popup__top-slider__wrapper">
-            <div @click="setCurrent" :id="'_'+i.coin" v-for="i in netsParse" :class="i.netsClass.popup_class_slider">
+            <div
+                @click="setCurrent"
+                class="nets-popup__top-slider__wrapper-item"
+                :id="'_'+i.coin"
+                v-for="(i, idx) in netsParse"
+                :class="{'left current': idx === 0, 'center': idx === 1, 'right': idx === 2, 'next': idx > 2}"
+            >
               <div v-if="!i.id" class="nets-popup__top-slider__wrapper-item__preloader">
                 <div><span>{</span><span>}</span></div>
                 <p>Актуализация данных</p>
@@ -50,7 +56,11 @@
             </div>
           </div>
         </div>
-        <div v-for="i in netsParse" :class="i.netsClass.nets_stat_class">
+        <div
+            v-for="(i, idx) in netsParse"
+            class="nets-popup__stat"
+            :class="{'current': idx === 0}"
+        >
           <div class="nets-popup__stat-title">
             <div class="nets-popup__stat-title__blockchain">
               <p class="nets-popup__stat-title__blockchain-title">{{ $t('popup.blockchain') }}</p>
@@ -438,12 +448,12 @@ export default {
       this.nets = this.$store.state.nets.nets
       this.netsParse = this.$store.state.nets.nets
       this.setStartCalc()
-    }
+    },
   },
   computed: {
     __netsCount() {
       return this.$store.state.nets.nets.length
-    }
+    },
   }
 }
 </script>

@@ -19,12 +19,29 @@
           <button @click="toRight" class="calculator-wrapper__top-btn__right">
             <img :src="arrowRight" alt="">
           </button>
-          <div @click="sliderClick" v-for="i in netsParse" :class="i.netsClass.calc_class_slider_desktop">
+          <div
+              @click="sliderClick"
+              v-for="(i, idx) in netsParse"
+              class="calculator-wrapper__item"
+              :class="{
+                'current _01': idx === 0,
+                '_02': idx === 1,
+                '_03': idx === 2,
+                '_04': idx === 3,
+                '_05': idx === 4,
+                '_06': idx === 5,
+                'next': idx > 5
+              }"
+          >
             <img :src="i.img" alt="">
           </div>
         </div>
         <div class="calculator-wrapper__description">
-          <div v-for="i in netsParse" :class="i.netsClass.calc_info_class_desktop">
+          <div
+              v-for="(i, idx) in netsParse"
+              class="calculator-wrapper__info"
+              :class="{'current': idx === 0}"
+          >
             <div class="calculator-wrapper__info-header">
               <p>{{ $t('calculator.how_many') }}<span>{{i.token}}</span>?</p>
               <p>{{ $t('calculator.year_profit') }}</p>

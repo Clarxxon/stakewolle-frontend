@@ -195,78 +195,66 @@ export default {
 
         ]
     this.nets = [
-      {
-        'coin': 'cosmos',
-        'img': Cosmos,
-        'title': 'Cosmos',
-        'short_title': 'Cosmos',
-        'subtitle': 'Открытая, масштабируемая и взаимосвязанная экономика будущего',
-        'subtitle_en': 'Open scalable and interconnected economy of the future',
-        'popup_class_slider': 'nets-popup__top-slider__wrapper-item left current',
-        'calc_class_slider_desktop': 'calculator-wrapper__item _01 current',
-        'calc_info_class_desktop': 'calculator-wrapper__info current',
-        'calc_class_slider_mobile': 'mobile-calculator__top-item left current',
-        'nets_class_slider_mobile': 'mobile-stacking__slider-top__item left current',
-        'nets_info_class_mobile': 'mobile-stacking__slider-info__item current',
-        'nets_popup_class_mobile': 'nets-popup__top-slider__wrapper-item current',
-        'calc_class_info_mobile': 'mobile-calculator__info-item current',
-        'token': 'ATOM',
-        'week_data': [37.4319,37.4469,37.4463,38.7965,39.1909,37.3985,36.9795,36.4015,36.6498,37.1262,37.1272,37.1939,36.4895,35.7808,36.617,36.3707,36.607,37.7771,37.5614,38.1274,38.8649,39.1438,40.7283],
-        'nets_stat_class': 'nets-popup__stat current',
-        'block_time': '4,129',
-        'price': '40.7283',
-        'market_cap': '7 505 053 289',
-        'h24_vol': '613687518.5917',
-        'stakewolle_comission': '0%',
-        'annual_comission': '16.52',
-        'kepler_link': 'https://wallet.keplr.app/#/cosmoshub/stake?modal=stake&validator=cosmosvaloper1gf4wlkutql95j7wwsxz490s6fahlvk2s9xpwax',
-        'coingecko_status': true,
-        'ready_to_look': false,
-        'adres': 'cosmos1gf4wlkutql95j7wwsxz490s6fahlvk2sqj4m34',
-        'cosmostation': 'https://wallet.cosmostation.io/cosmos/',
-        'inflation': '9.62',
-        'bonded_ratio': '60.29',
-        'apy': '',
-        'price_dynamics': false
-      },
-      {
-        'coin': 'ki',
-        'img': Ki,
-        'title': 'Ki',
-        'short_title': 'Ki',
-        'subtitle': 'Ki объединяет CeFi и DeFi с использованием Tendermint Core',
-        'subtitle_en': 'Ki combines CeFi and DeFi using Tendermint Core',
-        'fee': '0.0159',
-        'market': 'ATOM',
-        'popup_class_slider': 'nets-popup__top-slider__wrapper-item center',
-        'calc_class_slider_desktop': 'calculator-wrapper__item _02',
-        'calc_info_class_desktop': 'calculator-wrapper__info',
-        'calc_class_slider_mobile': 'mobile-calculator__top-item center',
-        'nets_class_slider_mobile': 'mobile-stacking__slider-top__item center',
-        'nets_info_class_mobile': 'mobile-stacking__slider-info__item',
-        'nets_popup_class_mobile': 'nets-popup__top-slider__wrapper-item next',
-        'calc_class_info_mobile': 'mobile-calculator__info-item',
-        'token': 'XKI',
-        'week_data': [0.248,0.2503,0.252,0.2545,0.2541,0.2467,0.2475,0.2468,0.2517,0.249,0.2499,0.2496,0.2486,0.2476,0.2456,0.2458,0.2481,0.2518,0.2526,0.2568,0.2585,0.2598,0.2707],
-        'nets_stat_class': 'nets-popup__stat',
-        'block_time': '5,821',
-        'market_cap': '?',
-        'h24_vol': '53851.7451',
-        'price': '0.2707',
-        'h24_range': [],
-        'stakewolle_comission': '0%',
-        'annual_comission': '29.4',
-        'kepler_link': 'https://www.mintscan.io/ki-chain/validators/kivaloper19seaxuh9wp3zum42w6flrjsr5raptxhy3l8qvw',
-        'coingecko_status': true,
-        'ready_to_look': false,
-        'adres': 'ki19seaxuh9wp3zum42w6flrjsr5raptxhy9cfa0s',
-        'cosmostation': 'https://wallet.cosmostation.io/kichain/',
-        'inflation': '14',
-        'bonded_ratio': '47',
-        'apy': '',
-        'price_dynamics': false
-
-      },
+      // {
+      //   'coin': 'cosmos',
+      //   'img': Cosmos,
+      //   'title': 'Cosmos',
+      //   'short_title': 'Cosmos',
+      //   'subtitle': 'Открытая, масштабируемая и взаимосвязанная экономика будущего',
+      //   'subtitle_en': 'Open scalable and interconnected economy of the future',
+      //   'token': 'ATOM',
+      //   'price': '40.7283',
+      //   'market_cap': '7 505 053 289',
+      //   'h24_vol': '613687518.5917',
+      //   'stakewolle_comission': '0%',
+      //   'annual_comission': '16.52',
+      //   'kepler_link': 'https://wallet.keplr.app/#/cosmoshub/stake?modal=stake&validator=cosmosvaloper1gf4wlkutql95j7wwsxz490s6fahlvk2s9xpwax',
+      //   'coingecko_status': true,
+      //   'ready_to_look': false,
+      //   'adres': 'cosmos1gf4wlkutql95j7wwsxz490s6fahlvk2sqj4m34',
+      //   'cosmostation': 'https://wallet.cosmostation.io/cosmos/',
+      //   'inflation': '9.62',
+      //   'bonded_ratio': '60.29',
+      //   'apy': '',
+      //   'price_dynamics': false
+      // },
+      // {
+      //   'coin': 'ki',
+      //   'img': Ki,
+      //   'title': 'Ki',
+      //   'short_title': 'Ki',
+      //   'subtitle': 'Ki объединяет CeFi и DeFi с использованием Tendermint Core',
+      //   'subtitle_en': 'Ki combines CeFi and DeFi using Tendermint Core',
+      //   'fee': '0.0159',
+      //   'market': 'ATOM',
+      //   'popup_class_slider': 'nets-popup__top-slider__wrapper-item center',
+      //   'calc_class_slider_desktop': 'calculator-wrapper__item _02',
+      //   'calc_info_class_desktop': 'calculator-wrapper__info',
+      //   'calc_class_slider_mobile': 'mobile-calculator__top-item center',
+      //   'nets_class_slider_mobile': 'mobile-stacking__slider-top__item center',
+      //   'nets_info_class_mobile': 'mobile-stacking__slider-info__item',
+      //   'nets_popup_class_mobile': 'nets-popup__top-slider__wrapper-item next',
+      //   'calc_class_info_mobile': 'mobile-calculator__info-item',
+      //   'token': 'XKI',
+      //   'week_data': [0.248,0.2503,0.252,0.2545,0.2541,0.2467,0.2475,0.2468,0.2517,0.249,0.2499,0.2496,0.2486,0.2476,0.2456,0.2458,0.2481,0.2518,0.2526,0.2568,0.2585,0.2598,0.2707],
+      //   'nets_stat_class': 'nets-popup__stat',
+      //   'block_time': '5,821',
+      //   'market_cap': '?',
+      //   'h24_vol': '53851.7451',
+      //   'price': '0.2707',
+      //   'h24_range': [],
+      //   'stakewolle_comission': '0%',
+      //   'annual_comission': '29.4',
+      //   'kepler_link': 'https://www.mintscan.io/ki-chain/validators/kivaloper19seaxuh9wp3zum42w6flrjsr5raptxhy3l8qvw',
+      //   'coingecko_status': true,
+      //   'ready_to_look': false,
+      //   'adres': 'ki19seaxuh9wp3zum42w6flrjsr5raptxhy9cfa0s',
+      //   'cosmostation': 'https://wallet.cosmostation.io/kichain/',
+      //   'inflation': '14',
+      //   'bonded_ratio': '47',
+      //   'apy': '',
+      //   'price_dynamics': false
+      // },
       {
         'coin': 'juno-network',
         'img': Juno,
@@ -302,7 +290,9 @@ export default {
         'inflation': '40',
         'bonded_ratio': '35.93',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/juno',
+        'bonded_ratio_link': 'https://lcd-juno.itastakers.com'
 
       },
       {
@@ -340,8 +330,9 @@ export default {
         'inflation': '9.3',
         'bonded_ratio': '77.06',
         'apy': '',
-        'price_dynamics': false
-
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/band-protocol',
+        'bonded_ratio_link': 'https://laozi1.bandchain.org/api'
       },
       {
         'coin': 'e-money',
@@ -378,8 +369,9 @@ export default {
         'inflation': '48.95',
         'bonded_ratio': '10',
         'apy': '',
-        'price_dynamics': false
-
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/e-money',
+        'bonded_ratio_link': 'https://emoney.validator.network/api'
       },
       {
         'coin': 'osmosis',
@@ -416,8 +408,9 @@ export default {
         'inflation': '62.61',
         'bonded_ratio': '36.85',
         'apy': '',
-        'price_dynamics': false
-
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/osmosis',
+        'bonded_ratio_link': 'https://osmosis-api.polkachu.com'
       },
       {
         'coin': 'sifchain',
@@ -454,7 +447,9 @@ export default {
         'inflation': '16.68',
         'bonded_ratio': '28.04',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/sifchain',
+        'bonded_ratio_link': 'https://api.sifchain.finance'
 
       },
       {
@@ -492,7 +487,9 @@ export default {
         'inflation': '15',
         'bonded_ratio': '61.27',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/secret',
+        'bonded_ratio_link': 'https://api.roninventures.io'
 
       },
       {
@@ -530,7 +527,9 @@ export default {
         'inflation': '20',
         'bonded_ratio': '61.13',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/kava',
+        'bonded_ratio_link': 'https://api.data.kava.io'
 
       },
       {
@@ -568,7 +567,9 @@ export default {
         'inflation': '20',
         'bonded_ratio': '61.13',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/iris-network',
+        'bonded_ratio_link': 'https://iris.api.ping.pub'
 
       },
       {
@@ -606,7 +607,9 @@ export default {
         'inflation': '9.11',
         'bonded_ratio': '38.80',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/iris-network',
+        'bonded_ratio_link': 'https://iris.api.ping.pub'
 
       },
       {
@@ -645,7 +648,9 @@ export default {
         'inflation': '55.82',
         'bonded_ratio': '62',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/desmos',
+        'bonded_ratio_link': 'https://api.mainnet.desmos.network'
 
       },
       {
@@ -683,7 +688,9 @@ export default {
         'inflation': '30.22',
         'bonded_ratio': '60.43',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/comdex',
+        'bonded_ratio_link': 'https://rest.comdex.one'
 
       },
       {
@@ -721,7 +728,9 @@ export default {
         'inflation': '24.20',
         'bonded_ratio': '73.12',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/akash-network',
+        'bonded_ratio_link': 'https://akash.c29r3.xyz:443/api'
 
       },
       {
@@ -759,7 +768,9 @@ export default {
         'inflation': '31.22',
         'bonded_ratio': '85.33',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/persistence',
+        'bonded_ratio_link': 'https://rest.core.persistence.one'
 
       },
       {
@@ -797,7 +808,9 @@ export default {
         'inflation': '8.3',
         'bonded_ratio': '14.94',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/persistence',
+        'bonded_ratio_link': 'https://rest.core.persistence.one'
       },
       {
         'coin': 'rizon',
@@ -834,7 +847,9 @@ export default {
         'inflation': '15',
         'bonded_ratio': '34.33',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/rizon',
+        'bonded_ratio_link': 'https://rizon.api.ping.pub'
       },
       {
         'coin': 'bitsong',
@@ -870,7 +885,9 @@ export default {
         'inflation': '12.81',
         'bonded_ratio': '33.76',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/bitsong',
+        'bonded_ratio_link': 'https://lcd.explorebitsong.com'
       },
       {
         'coin': 'likecoin',
@@ -899,7 +916,6 @@ export default {
         'stakewolle_comission': '0%',
         'annual_comission': '19.8',
         'kepler_link': '-',
-        'pingpub_link': 'https://ping.pub/likecoin/staking/cosmosvaloper13ytytwjuerm3zc8svdvgh3vq7fgve75vnfxafm',
         'coingecko_status': true,
         'ready_to_look': false,
         'adres': 'cosmosvaloper13ytytwjuerm3zc8svdvgh3vq7fgve75vnfxafm',
@@ -907,7 +923,9 @@ export default {
         'inflation': '8.97',
         'bonded_ratio': '51.08',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/likecoin',
+        'bonded_ratio_link': 'https://mainnet-node.like.co'
       },
       {
         'coin': 'chihuahua',
@@ -936,7 +954,7 @@ export default {
         'stakewolle_comission': '5%',
         'annual_comission': '340',
         'kepler_link': '-',
-        'pingpub_link': 'https://ping.pub/chihuahua/staking/chihuahuavaloper1ju6mkyxpjsdcmrw0pnx6sd4zu4wywkmhtgnpr5',
+        //'pingpub_link': 'https://ping.pub/chihuahua/staking/chihuahuavaloper1ju6mkyxpjsdcmrw0pnx6sd4zu4wywkmhtgnpr5',
         'coingecko_status': true,
         'ready_to_look': false,
         'adres': 'chihuahua1ju6mkyxpjsdcmrw0pnx6sd4zu4wywkmhclnusg',
@@ -944,7 +962,9 @@ export default {
         'inflation': '60',
         'bonded_ratio': '15.31',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/chihuahua',
+        'bonded_ratio_link': 'https://api.chihuahua.wtf'
       },
       {
         'coin': 'lum-network',
@@ -980,7 +1000,9 @@ export default {
         'inflation': '20',
         'bonded_ratio': '41.25',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/lum-network',
+        'bonded_ratio_link': 'https://node0.mainnet.lum.network/rest'
       },
       {
         'coin': 'sentinel',
@@ -1009,7 +1031,7 @@ export default {
         'stakewolle_comission': '0.25%',
         'annual_comission': '52.4',
         'kepler_link': '-',
-        'pingpub_link': 'https://ping.pub/sentinel/staking/sentvaloper1hms0qpe27uulkllw96tmeqnl4hvxsf4vwp729v',
+        //'pingpub_link': 'https://ping.pub/sentinel/staking/sentvaloper1hms0qpe27uulkllw96tmeqnl4hvxsf4vwp729v',
         'coingecko_status': true,
         'ready_to_look': false,
         'adres': 'sent1hms0qpe27uulkllw96tmeqnl4hvxsf4v3yp829',
@@ -1017,7 +1039,9 @@ export default {
         'inflation': '43',
         'bonded_ratio': '70.03',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/sentinel',
+        'bonded_ratio_link': 'https://lcd.sentinel.co'
       },
       {
         'coin': 'cheqd-network',
@@ -1046,7 +1070,7 @@ export default {
         'stakewolle_comission': '0%',
         'annual_comission': '8',
         'kepler_link': '-',
-        'pingpub_link': 'https://ping.pub/cheqd/staking/cheqdvaloper1ny8gd9tsyqhm56agp4vkpa6fldr2n4guthcvfj',
+        //'pingpub_link': 'https://ping.pub/cheqd/staking/cheqdvaloper1ny8gd9tsyqhm56agp4vkpa6fldr2n4guthcvfj',
         'coingecko_status': true,
         'ready_to_look': false,
         'adres': 'cheqdvaloper1ny8gd9tsyqhm56agp4vkpa6fldr2n4guthcvfj',
@@ -1054,7 +1078,9 @@ export default {
         'inflation': '2.41',
         'bonded_ratio': '34.54',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/cheqd',
+        'bonded_ratio_link': 'https://api.cheqd.net'
       },
       {
         'coin': 'dig-chain',
@@ -1083,7 +1109,7 @@ export default {
         'stakewolle_comission': '0%',
         'annual_comission': '43.5',
         'kepler_link': '-',
-        'pingpub_link': 'https://ping.pub/dig/staking/digvaloper1vm6m78glgfjaepaxwcdg6py380q7yasds2k2t8',
+        //'pingpub_link': 'https://ping.pub/dig/staking/digvaloper1vm6m78glgfjaepaxwcdg6py380q7yasds2k2t8',
         'coingecko_status': true,
         'ready_to_look': false,
         'adres': 'digvaloper1vm6m78glgfjaepaxwcdg6py380q7yasds2k2t8',
@@ -1091,7 +1117,9 @@ export default {
         'inflation': '21.6',
         'bonded_ratio': '53.15',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/dig',
+        'bonded_ratio_link': 'https://api-1-dig.notional.ventures'
       }
       ,
       {
@@ -1128,7 +1156,9 @@ export default {
         'inflation': '0',
         'bonded_ratio': '-',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/dig',
+        'bonded_ratio_link': 'https://api-1-dig.notional.ventures',
       }
       ,
       {
@@ -1158,7 +1188,7 @@ export default {
         'stakewolle_comission': '5%',
         'annual_comission': '43.5',
         'kepler_link': '-',
-        'pingpub_link': 'https://ping.pub/gravity-bridge/staking/gravityvaloper1vdvdl3krc9s4plnnvfk58k83lx5v38s6yse5ny',
+        //'pingpub_link': 'https://ping.pub/gravity-bridge/staking/gravityvaloper1vdvdl3krc9s4plnnvfk58k83lx5v38s6yse5ny',
         'coingecko_status': false,
         'ready_to_look': true,
         'adres': 'gravity1vdvdl3krc9s4plnnvfk58k83lx5v38s64mq2es',
@@ -1166,7 +1196,9 @@ export default {
         'inflation': '14.28',
         'bonded_ratio': '31.04',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/gravity-bridge',
+        'bonded_ratio_link': 'https://gravitychain.io:1317'
       }
       ,
       {
@@ -1203,7 +1235,9 @@ export default {
         'inflation': '14.61',
         'bonded_ratio': '61.02',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/gravity-bridge',
+        'bonded_ratio_link': 'https://gravitychain.io:1317'
       }
       ,
       {
@@ -1233,7 +1267,7 @@ export default {
         'stakewolle_comission': '5%',
         'annual_comission': '235',
         'kepler_link': '-',
-        'pingpub_link': 'https://ping.pub/cerberus/staking',
+        //'pingpub_link': 'https://ping.pub/cerberus/staking',
         'coingecko_status': true,
         'ready_to_look': false,
         'adres': 'cerberusvaloper1xjgspyv73d3k3ewygu0v2gcwwplwxkxg03reqy',
@@ -1241,7 +1275,9 @@ export default {
         'inflation': '43',
         'bonded_ratio': '12.24',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/cerberus',
+        'bonded_ratio_link': 'https://api.cerberus.zone:1317'
       },
       {
         'coin': 'ixo',
@@ -1270,7 +1306,7 @@ export default {
         'stakewolle_comission': '5%',
         'annual_comission': '49.7',
         'kepler_link': '-',
-        'pingpub_link': 'https://ping.pub/ixo/staking/ixovaloper12g6xke0lu758u8dtan8efsdhe2xxwxwh4lrjax',
+        //'pingpub_link': 'https://ping.pub/ixo/staking/ixovaloper12g6xke0lu758u8dtan8efsdhe2xxwxwh4lrjax',
         'coingecko_status': true,
         'ready_to_look': false,
         'adres': 'ixovaloper12g6xke0lu758u8dtan8efsdhe2xxwxwh4lrjax',
@@ -1278,7 +1314,9 @@ export default {
         'inflation': '20',
         'bonded_ratio': '40.17',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/ixo',
+        'bonded_ratio_link': 'https://impacthub.ixo.world/rest'
       }
       ,
       {
@@ -1308,7 +1346,7 @@ export default {
         'stakewolle_comission': '0%',
         'annual_comission': '45',
         'kepler_link': '-',
-        'pingpub_link': 'https://ping.pub/crescent/staking/crevaloper1sx88pppqz998p6sq84hjvrx5qrgq7ezqdtmfxt',
+        //'pingpub_link': 'https://ping.pub/crescent/staking/crevaloper1sx88pppqz998p6sq84hjvrx5qrgq7ezqdtmfxt',
         'coingecko_status': true,
         'ready_to_look': false,
         'adres': 'crevaloper1sx88pppqz998p6sq84hjvrx5qrgq7ezqdtmfxt',
@@ -1316,7 +1354,9 @@ export default {
         'inflation': '54.35',
         'bonded_ratio': '9.13',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/crescent',
+        'bonded_ratio_link': 'https://crescent-api.polkachu.com'
       }
       ,
       {
@@ -1346,7 +1386,7 @@ export default {
         'stakewolle_comission': '0%',
         'annual_comission': '13.26',
         'kepler_link': '-',
-        'pingpub_link': 'https://ping.pub/fetchhub/staking/fetchvaloper1xmznygxujt2vpzmufvghfunw5rq02qn5plut4t',
+        //'pingpub_link': 'https://ping.pub/fetchhub/staking/fetchvaloper1xmznygxujt2vpzmufvghfunw5rq02qn5plut4t',
         'coingecko_status': true,
         'ready_to_look': false,
         'adres': 'fetchvaloper1xmznygxujt2vpzmufvghfunw5rq02qn5plut4t',
@@ -1354,7 +1394,9 @@ export default {
         'inflation': '3',
         'bonded_ratio': '22.62',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/fetchhub',
+        'bonded_ratio_link': 'https://rest-fetchhub.fetch.ai'
       },
       {
         'coin': 'vidulum',
@@ -1383,7 +1425,7 @@ export default {
         'stakewolle_comission': '0%',
         'annual_comission': '18.76',
         'kepler_link': '-',
-        'pingpub_link': 'https://ping.pub/vidulum/staking/vdlvaloper12mzd08n2ut7qwfmchezk2hqkh644lvd2tngequ',
+        //'pingpub_link': 'https://ping.pub/vidulum/staking/vdlvaloper12mzd08n2ut7qwfmchezk2hqkh644lvd2tngequ',
         'coingecko_status': true,
         'ready_to_look': false,
         'adres': 'vdlvaloper12mzd08n2ut7qwfmchezk2hqkh644lvd2tngequ',
@@ -1391,7 +1433,9 @@ export default {
         'inflation': '11.07',
         'bonded_ratio': '58.87',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/vidulum',
+        'bonded_ratio_link': 'https://mainnet-lcd.vidulum.app'
       },
       {
         'coin': 'injective-protocol',
@@ -1420,7 +1464,7 @@ export default {
         'stakewolle_comission': '0%',
         'annual_comission': '14.69',
         'kepler_link': '-',
-        'pingpub_link': 'https://ping.pub/injective/staking/injvaloper1kpfxtqt5cmlew46dem32fqlk5g6k4wyueh4szu',
+        //'pingpub_link': 'https://ping.pub/injective/staking/injvaloper1kpfxtqt5cmlew46dem32fqlk5g6k4wyueh4szu',
         'coingecko_status': true,
         'ready_to_look': false,
         'adres': 'injvaloper1kpfxtqt5cmlew46dem32fqlk5g6k4wyueh4szu',
@@ -1428,7 +1472,9 @@ export default {
         'inflation': '5.98',
         'bonded_ratio': '40.63',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/injective',
+        'bonded_ratio_link': 'https://lcd.injective.network'
       },
       {
         'coin': 'degenerator',
@@ -1457,7 +1503,7 @@ export default {
         'stakewolle_comission': '',
         'annual_comission': '14.70',
         'kepler_link': '-',
-        'pingpub_link': 'https://ping.pub/meme/staking/memevaloper1dshysamgzd0d7meftn6npf9pxyskxh49mdc68a',
+        //'pingpub_link': 'https://ping.pub/meme/staking/memevaloper1dshysamgzd0d7meftn6npf9pxyskxh49mdc68a',
         'coingecko_status': true,
         'ready_to_look': false,
         'adres': 'memevaloper1dshysamgzd0d7meftn6npf9pxyskxh49mdc68a',
@@ -1465,7 +1511,9 @@ export default {
         'inflation': '16.32',
         'bonded_ratio': '7.63',
         'apy': '',
-        'price_dynamics': false
+        'price_dynamics': false,
+        'pingpub_link': 'https://ping.pub/meme',
+        'bonded_ratio_link': 'https://api-meme-1.meme.sx'
       },
     ]
     // Текущая дата и вчерашняя - для отдельных запросов из Coingecko
@@ -1484,7 +1532,7 @@ export default {
     }
   },
   async mounted(){
-    this.fetchNets().then(nets => this.$store.commit('nets/saveNets', nets))
+    await this.fetchNets().then(nets => this.$store.commit('nets/saveNets', nets))
     if(window.innerWidth<=428){
       this.mobile = true
     } else {
