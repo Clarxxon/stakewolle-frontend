@@ -3732,3 +3732,24 @@ to {
     transform: scale(1);
   }
 }
+.preload-btn {
+  display: block;
+  margin: 0 auto;
+  padding: 9px 28px;
+  font-size: 15px;
+  margin-top: 68px;
+  background: transparent;
+  border-radius: 0.3em;
+  color: #FFF;
+  border: 1px solid gray;
+  cursor: pointer;
+}
+.nets-loading {
+  text-align: center;
+  font-family: Open Sans;
+  font-size: 3.5rem;
+  line-height: 120%;
+  letter-spacing: -0.01em;
+  color: #fff;
+  margin-bottom: 5rem;
+}

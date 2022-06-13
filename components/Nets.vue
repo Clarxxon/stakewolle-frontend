@@ -135,6 +135,7 @@
     </div>
     <h5>{{ $t('delegates.title') }}</h5>
     <div class="nets-container">
+      <p class="nets-loading" v-if="!netsParse.length">Loading...</p>
       <div :id="'net-'+i.coin" class="nets-item" v-for="i in netsParse">
         <img
             class="nets-item__logo"
@@ -152,6 +153,14 @@
         </div>
       </div>
     </div>
+    <button
+      class="preload-btn"
+      v-if="netsParse.length < netsTotalCount"
+      @click="preloadNets"
+    >
+      {{isLoading ? 'Loading' : 'Show more'}}
+    </button>
+
     <img class="nets-bg-image-violet" :src="violet" alt="">
     <img class="nets-bg-image-violet-p" :src="violet_p" alt="">
     <img class="nets-bg-image-white-blur" :src="whiteBlur" alt="">
@@ -191,6 +200,8 @@ export default {
     netsToCalc: [],
     netsParse: [],
     nets: [],
+    netsTotalCount: 0,
+    isLoading: false
   }),
 
   methods: {
@@ -438,15 +449,37 @@ export default {
     },
     round(number){
       return +number.toFixed(4);
+    },
+    async preloadNets() {
+      if (!this.isLoading) {
+        this.isLoading = true
+        let page = this.$store.state.nets.page
+        page += 1
+        try {
+          const res = await this.$host.get('/api/net-card', {params: {
+            page
+          }})
+          const data = res.data
+          this.$store.commit('nets/pushNets', data.nets)
+          this.$store.commit('nets/setTotal', data.count)
+          this.$store.commit('nets/setPage', page)
+        }catch(e) {
+          console.log(e)
+        }
+        this.isLoading = false
+      }
     }
   },
-  async created() {
-
+  async mounted() {
+    this.nets = this.$store.state.nets.nets
+    this.netsParse = this.$store.state.nets.nets
+    this.netsTotalCount = this.$store.state.nets.total
   },
   watch: {
     __netsCount() {
       this.nets = this.$store.state.nets.nets
       this.netsParse = this.$store.state.nets.nets
+      this.netsTotalCount = this.$store.state.nets.total
       this.setStartCalc()
     },
   },

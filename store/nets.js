@@ -1,5 +1,7 @@
 export const state = () => ({
-	nets: []
+	nets: [],
+	total: 0,
+	page: null
 })
 export const getters = {
 	nets(state) {
@@ -8,6 +10,15 @@ export const getters = {
 }
 export const mutations = {
 	saveNets(state, nets) {
-			state.nets = nets
+		state.nets = nets
 	},
+	setTotal(state, count) {
+		state.total = count
+	},
+	pushNets(state, nets) {
+		nets.forEach(item => state.nets.push(item))
+	},
+	setPage(state, page) {
+		state.page = page
+	}
 }
