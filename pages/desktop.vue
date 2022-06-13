@@ -19,7 +19,7 @@
     </div>
     <AboutUs></AboutUs>
     <Delegates v-bind:delegates="delegates"></Delegates>
-    <Nets/>
+    <Nets :preload="preload" />
     <SoonValidators v-bind:netsToValidators="netsToValidators"></SoonValidators>
     <div class="dark-bg">
       <Calculator id="d-calc"></Calculator>
@@ -41,7 +41,8 @@ export default {
   name: "desktop",
   props: {
     netsToValidators: [],
-    delegates: []
+    delegates: [],
+    preload: { type: Function, required: true }
   },
   data: () => ({
     powered,

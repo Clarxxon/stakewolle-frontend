@@ -33,7 +33,7 @@
               <div class="nets-popup__top-slider__wrapper-item__background">
                 <img :src="i.img" alt="">
                 <div class="nets-popup__top-slider__wrapper-item__background-linear"></div>
-                <bar v-if="i.week_data.length>0 && i.ready_to_look" :sliderData="i.week_data" class="nets-popup__top-slider__wrapper-item__background-chart"></bar>
+                <bar :sliderData="i.week_data" class="nets-popup__top-slider__wrapper-item__background-chart"></bar>
               </div>
               <div class="nets-popup__top-slider__wrapper-item__info">
                 <div class="nets-popup__top-slider__wrapper-item__info-name">
@@ -148,7 +148,7 @@
                 'left current': idx === 0,
                 'center': idx === 1,
                 'right': idx === 2,
-                'next': idx === 3
+                'next': idx >= 3
               }"
           >
             <img :src="i.img" alt="">
@@ -171,6 +171,7 @@
                 <p>{{ $t('staking') }}</p>
               </button>
             </div>
+            <button v-if="netsParse.length < netsTotalCount" class="mobile-preload-btn" @click="preloadNets" >{{ isLoading ? 'Loading' : 'Get more' }}</button> 
           </div>
         </div>
       </div>
@@ -191,6 +192,9 @@ import copy from '@/static/nets/copy.svg'
 
 export default {
   name: "mobileStacking",
+  props: {
+    preload: { type: Function, required: true }
+  },
   data(){
     return{
       copy,
@@ -202,6 +206,8 @@ export default {
       netsToCalc: [],
       netsParse: [],
       nets: [],
+      isLoading: false,
+      netsTotalCount: 0,
     }
   },
   async mounted() {
@@ -219,6 +225,13 @@ export default {
 
   },
   methods: {
+    async preloadNets() {
+      if (!this.isLoading) {
+        this.isLoading = true
+        await this.preload()
+        this.isLoading = false
+      }
+    },
     copyAdres(){
       let el = document.querySelectorAll('.calculator-token-input')[1]
       const popupCopy = document.querySelectorAll('.popup-copy')[1]
@@ -534,7 +547,8 @@ export default {
     __netsCount() {
       this.nets = this.$store.state.nets.nets
       this.netsParse = this.$store.state.nets.nets
-      this.setCalc()
+      this.netsTotalCount = this.$store.state.nets.total
+      //this.setCalc()
     }
   },
   computed: {

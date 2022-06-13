@@ -21,7 +21,7 @@
     <mobile-start-block></mobile-start-block>
     <mobile-about-us id="m-about"></mobile-about-us>
     <mobile-delegates v-bind:delegates="delegates"></mobile-delegates>
-    <mobile-stacking v-bind:nets="nets"></mobile-stacking>
+    <mobile-stacking :preload="preload" v-bind:nets="nets"></mobile-stacking>
     <mobile-validators v-bind:netsToValidators="netsToValidators"></mobile-validators>
     <mobile-stonks></mobile-stonks>
     <mobile-calculator v-bind:nets="nets" id="m-calc"></mobile-calculator>
@@ -43,7 +43,8 @@ export default {
   props: {
     nets: [],
     netsToValidators: [],
-    delegates: []
+    delegates: [],
+    preload: { type: Function, required: true }
   },
   data () {
     return{

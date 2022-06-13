@@ -2231,6 +2231,17 @@
   .powered-by-akash{
     width: 70%;
   }
-
+  .mobile-preload-btn {
+    position: absolute;
+    margin: 0 auto;
+    display: block;
+    padding: 5px 16px;
+    border-radius: 0.3em;
+    outline: none;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    bottom: -60px;
+  }
   //end of mobile styles
 }

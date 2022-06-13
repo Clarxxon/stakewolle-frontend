@@ -190,6 +190,9 @@ import copy from '@/static/nets/copy.svg'
 
 export default {
   name: "Nets",
+  props: {
+    preload: { type: Function, required: true }
+  },
   data: () => ({
     bottom,
     rings, popupLeft, popupRight, arrowDown, blockTime, arrowDownDark,
@@ -453,19 +456,7 @@ export default {
     async preloadNets() {
       if (!this.isLoading) {
         this.isLoading = true
-        let page = this.$store.state.nets.page
-        page += 1
-        try {
-          const res = await this.$host.get('/api/net-card', {params: {
-            page
-          }})
-          const data = await res.data
-          this.$store.commit('nets/pushNets', data.nets)
-          this.$store.commit('nets/setTotal', data.count)
-          this.$store.commit('nets/setPage', page)
-        }catch(e) {
-          console.log(e)
-        }
+        await this.preload()
         this.isLoading = false
       }
     }

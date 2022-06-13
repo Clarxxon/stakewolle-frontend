@@ -1,8 +1,8 @@
 <template>
   <div>
     <div><img src="https://mc.yandex.ru/watch/86787478" style="position:absolute; left:-9999px;" alt="" /></div>
-    <Desktop :delegates="delegates" v-bind:netsToValidators="netsToValidators" v-if="desktop"></Desktop>
-    <mobile v-bind:delegates="delegates" :nets="$store.state.nets.nets" v-bind:netsToValidators="netsToValidators" v-if="mobile"></mobile>
+    <Desktop :preload="preloadNets" :delegates="delegates" v-bind:netsToValidators="netsToValidators" v-if="desktop"></Desktop>
+    <mobile :preload="preloadNets" v-bind:delegates="delegates" :nets="$store.state.nets.nets" v-bind:netsToValidators="netsToValidators" v-if="mobile"></mobile>
     <script type="text/javascript" >
       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
         m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
@@ -1582,6 +1582,21 @@ export default {
       if (!page) {
         this.$store.commit('nets/setPage', 1)
       }
+    },
+    async preloadNets() {
+      let page = this.$store.state.nets.page
+      page += 1
+      try {
+        const res = await this.$host.get('/api/net-card', {params: {
+          page
+        }})
+        const data = await res.data
+        this.$store.commit('nets/pushNets', data.nets)
+        this.$store.commit('nets/setTotal', data.count)
+        this.$store.commit('nets/setPage', page)
+      }catch(e) {
+        console.log(e)
+      }
     }
   },
   async mounted(){
@@ -1590,11 +1605,7 @@ export default {
     } else {
       this.desktop = true
     }
-    try {
-      await this.fetchNets()
-    }catch(e) {
-      await this.fetchNets()
-    }
+    await this.fetchNets()
 
     window.addEventListener('orientationchange', () => {
       const orientation = window.matchMedia('(orientation: landscape)')
