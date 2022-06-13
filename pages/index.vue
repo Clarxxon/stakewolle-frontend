@@ -109,18 +109,6 @@ export default {
             'link': 'https://www.starname.me/'
           },
           {
-            'img': Stargaze,
-            'title': 'Stargaze',
-            'short_title': 'Stargaze',
-            'subtitle': 'Первый совместимый интерфейс уровня 1 для Nfs',
-            'subtitle_en': 'The First Interoperable Layer 1 for NFTs',
-            'calc_class_slider_desktop': 'slider-item center',
-            'calc_info_class_desktop': 'validators-slider calculator-wrapper__info',
-            'calc_class_slider_mobile': 'validators-slider mobile-stacking__slider-top__item center',
-            'calc_info_class_slider_mobile': 'validators-slider mobile-stacking__slider-info__item',
-            'link': 'https://www.stargaze.zone/'
-          },
-          {
             'img': Mina,
             'title': 'Mina',
             'short_title': 'Mina',
