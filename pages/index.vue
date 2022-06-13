@@ -1602,7 +1602,11 @@ export default {
     } else {
       this.desktop = true
     }
-    await this.fetchNets()
+    try {
+      await this.fetchNets()
+    }catch(e) {
+      await this.fetchNets()
+    }
 
     window.addEventListener('orientationchange', () => {
       const orientation = window.matchMedia('(orientation: landscape)')

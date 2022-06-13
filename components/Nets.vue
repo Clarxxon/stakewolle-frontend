@@ -459,7 +459,7 @@ export default {
           const res = await this.$host.get('/api/net-card', {params: {
             page
           }})
-          const data = res.data
+          const data = await res.data
           this.$store.commit('nets/pushNets', data.nets)
           this.$store.commit('nets/setTotal', data.count)
           this.$store.commit('nets/setPage', page)
