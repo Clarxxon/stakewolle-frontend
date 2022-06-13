@@ -91,7 +91,7 @@
                   <div class="nets-popup__stat-info__positions-coingecko__value">
                     <img v-if="!i.price_dynamics" class="course-arrow__bottom" :src="arrowDownDark" alt="">
                     <img v-if="i.price_dynamics" style="transform: rotate(180deg)" class="course-arrow__bottom" :src="arrowDownDark" alt="">
-                    <p>{{i.price_change_percentage}}% (24h)</p>
+                    <p>{{i.price_change_percentage_24h}}% (24h)</p>
                   </div>
                 </div>
                 <div class="nets-popup__stat-info__positions-market">

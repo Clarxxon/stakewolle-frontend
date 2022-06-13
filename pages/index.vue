@@ -115,9 +115,9 @@ export default {
             'subtitle': 'Обеспечение доступа и конфиденциальности к Web3.0 с помощью ZK tech. Mina - самый легкий блокчейн в мире',
             'subtitle_en': 'Bringing access and privacy to Web3.0 with ZK tech. \n' +
                 'Mina is the world’s lightest blockchain',
-            'calc_class_slider_desktop': 'slider-item right',
+            'calc_class_slider_desktop': 'slider-item center',
             'calc_info_class_desktop': 'validators-slider calculator-wrapper__info',
-            'calc_class_slider_mobile': 'validators-slider mobile-stacking__slider-top__item right',
+            'calc_class_slider_mobile': 'validators-slider mobile-stacking__slider-top__item center',
             'calc_info_class_slider_mobile': 'validators-slider mobile-stacking__slider-info__item',
             'link': 'https://minaprotocol.com/'
           },
@@ -127,9 +127,9 @@ export default {
             'short_title': 'Celo',
             'subtitle': 'Это открытая платформа, которая делает финансовые инструменты доступными для любого, у кого есть мобильный телефон',
             'subtitle_en': 'Is an open platform that makes financial tools accessible to anyone with a mobile phone',
-            'calc_class_slider_desktop': 'slider-item next',
+            'calc_class_slider_desktop': 'slider-item right',
             'calc_info_class_desktop': 'validators-slider calculator-wrapper__info',
-            'calc_class_slider_mobile': 'validators-slider mobile-stacking__slider-top__item next',
+            'calc_class_slider_mobile': 'validators-slider mobile-stacking__slider-top__item right',
             'calc_info_class_slider_mobile': 'validators-slider mobile-stacking__slider-info__item',
             'link': 'https://t.co/dwpKilicsk'
           },
