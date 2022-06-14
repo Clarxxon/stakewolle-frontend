@@ -171,7 +171,7 @@
                 <p>{{ $t('staking') }}</p>
               </button>
             </div>
-            <button v-if="netsParse.length < netsTotalCount" class="mobile-preload-btn" @click="preloadNets" >{{ isLoading ? 'Loading' : 'Get more' }}</button> 
+            <button v-if="!netsTotalCount" class="mobile-preload-btn" @click="preloadNets" >{{ isLoading ? 'Loading' : 'Get more' }}</button> 
           </div>
         </div>
       </div>
@@ -547,7 +547,7 @@ export default {
     __netsCount() {
       this.nets = this.$store.state.nets.nets
       this.netsParse = this.$store.state.nets.nets
-      this.netsTotalCount = this.$store.state.nets.total
+      this.netsTotalCount = this.$store.state.nets.totalNets
       //this.setCalc()
     }
   },

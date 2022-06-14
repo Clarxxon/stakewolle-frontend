@@ -135,7 +135,6 @@
     </div>
     <h5>{{ $t('delegates.title') }}</h5>
     <div class="nets-container">
-      <p class="nets-loading" v-if="!netsParse.length">Loading...</p>
       <div :id="'net-'+i.coin" class="nets-item" v-for="i in netsParse">
         <img
             class="nets-item__logo"
@@ -155,7 +154,7 @@
     </div>
     <button
       class="preload-btn"
-      v-if="netsParse.length < netsTotalCount"
+      v-if="!netsTotalCount"
       @click="preloadNets"
     >
       {{isLoading ? 'Loading' : 'Show more'}}
@@ -204,7 +203,7 @@ export default {
     netsParse: [],
     nets: [],
     netsTotalCount: 0,
-    isLoading: false
+    isLoading: true
   }),
 
   methods: {
@@ -464,13 +463,14 @@ export default {
   async mounted() {
     this.nets = this.$store.state.nets.nets
     this.netsParse = this.$store.state.nets.nets
-    this.netsTotalCount = this.$store.state.nets.total
+    this.netsTotalCount = this.$store.state.nets.totalNets
   },
   watch: {
     __netsCount() {
       this.nets = this.$store.state.nets.nets
       this.netsParse = this.$store.state.nets.nets
-      this.netsTotalCount = this.$store.state.nets.total
+      this.netsTotalCount = this.$store.state.nets.totalNets
+      this.isLoading = false
       this.setStartCalc()
     },
   },

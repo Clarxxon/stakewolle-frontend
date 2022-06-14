@@ -184,106 +184,106 @@ export default {
 
         ]
     this.nets = [
-      {
-        'coin': 'cosmos',
-        'img': Cosmos,
-        'title': 'Cosmos',
-        'short_title': 'Cosmos',
-        'subtitle': 'Открытая, масштабируемая и взаимосвязанная экономика будущего',
-        'subtitle_en': 'Open scalable and interconnected economy of the future',
-        'token': 'ATOM',
-        'price': '40.7283',
-        'market_cap': '7 505 053 289',
-        'h24_vol': '613687518.5917',
-        'stakewolle_comission': '0%',
-        'annual_comission': '16.52',
-        'kepler_link': 'https://wallet.keplr.app/#/cosmoshub/stake?modal=stake&validator=cosmosvaloper1gf4wlkutql95j7wwsxz490s6fahlvk2s9xpwax',
-        'coingecko_status': true,
-        'ready_to_look': false,
-        'adres': 'cosmos1gf4wlkutql95j7wwsxz490s6fahlvk2sqj4m34',
-        'cosmostation': 'https://wallet.cosmostation.io/cosmos/',
-        'inflation': '9.62',
-        'bonded_ratio': '60.29',
-        'apy': '',
-        'price_dynamics': false
-      },
-      {
-        'coin': 'ki',
-        'img': Ki,
-        'title': 'Ki',
-        'short_title': 'Ki',
-        'subtitle': 'Ki объединяет CeFi и DeFi с использованием Tendermint Core',
-        'subtitle_en': 'Ki combines CeFi and DeFi using Tendermint Core',
-        'fee': '0.0159',
-        'market': 'ATOM',
-        'popup_class_slider': 'nets-popup__top-slider__wrapper-item center',
-        'calc_class_slider_desktop': 'calculator-wrapper__item _02',
-        'calc_info_class_desktop': 'calculator-wrapper__info',
-        'calc_class_slider_mobile': 'mobile-calculator__top-item center',
-        'nets_class_slider_mobile': 'mobile-stacking__slider-top__item center',
-        'nets_info_class_mobile': 'mobile-stacking__slider-info__item',
-        'nets_popup_class_mobile': 'nets-popup__top-slider__wrapper-item next',
-        'calc_class_info_mobile': 'mobile-calculator__info-item',
-        'token': 'XKI',
-        'week_data': [0.248,0.2503,0.252,0.2545,0.2541,0.2467,0.2475,0.2468,0.2517,0.249,0.2499,0.2496,0.2486,0.2476,0.2456,0.2458,0.2481,0.2518,0.2526,0.2568,0.2585,0.2598,0.2707],
-        'nets_stat_class': 'nets-popup__stat',
-        'block_time': '5,821',
-        'market_cap': '?',
-        'h24_vol': '53851.7451',
-        'price': '0.2707',
-        'h24_range': [],
-        'stakewolle_comission': '0%',
-        'annual_comission': '29.4',
-        'kepler_link': 'https://www.mintscan.io/ki-chain/validators/kivaloper19seaxuh9wp3zum42w6flrjsr5raptxhy3l8qvw',
-        'coingecko_status': true,
-        'ready_to_look': false,
-        'adres': 'ki19seaxuh9wp3zum42w6flrjsr5raptxhy9cfa0s',
-        'cosmostation': 'https://wallet.cosmostation.io/kichain/',
-        'inflation': '14',
-        'bonded_ratio': '47',
-        'apy': '',
-        'price_dynamics': false
-      },
-      {
-        'coin': 'juno-network',
-        'img': Juno,
-        'title': 'Juno',
-        'short_title': 'Juno',
-        'subtitle': 'Децентрализованная общедоступная сеть без разрешений для смарт-контрактов между цепочками',
-        'subtitle_en': 'Decentralized public network without allowance for smart-contracts between chains',
-        'fee': '0.5623',
-        'market': 'ATOM',
-        'popup_class_slider': 'nets-popup__top-slider__wrapper-item right',
-        'calc_class_slider_desktop': 'calculator-wrapper__item _03',
-        'calc_info_class_desktop': 'calculator-wrapper__info',
-        'calc_class_slider_mobile': 'mobile-calculator__top-item right',
-        'nets_class_slider_mobile': 'mobile-stacking__slider-top__item right',
-        'nets_info_class_mobile': 'mobile-stacking__slider-info__item',
-        'nets_popup_class_mobile': 'nets-popup__top-slider__wrapper-item next',
-        'calc_class_info_mobile': 'mobile-calculator__info-item',
-        'token': 'JUNO',
-        'week_data': [14.297,14.2191,13.9948,14.4841,14.618,14.3183,13.7546,13.7231,13.5597,13.9949,13.8782,13.9866,13.6564,13.6101,13.6782,13.6966,13.9457,14.0718,14.3986,14.5152,14.9696,14.9639,15.3623],
-        'nets_stat_class': 'nets-popup__stat',
-        'block_time': '6,284',
-        'market_cap': '1 276 997 141',
-        'h24_vol': '9531826.0202',
-        'price': '15.3623',
-        'h24_range': [],
-        'stakewolle_comission': '5%',
-        'annual_comission': '103',
-        'kepler_link': 'https://wallet.keplr.app/#/juno/stake?modal=stake&validator=junovaloper1qr78535yz60zemv82sww948c6azx40gnawnh6r',
-        'coingecko_status': true,
-        'ready_to_look': false,
-        'adres': 'juno1qr78535yz60zemv82sww948c6azx40gnzn9cp6',
-        'cosmostation': 'https://wallet.cosmostation.io/juno/',
-        'inflation': '40',
-        'bonded_ratio': '35.93',
-        'apy': '',
-        'price_dynamics': false,
-        'pingpub_link': 'https://ping.pub/juno',
-        'bonded_ratio_link': 'https://lcd-juno.itastakers.com'
+      // {
+      //   'coin': 'cosmos',
+      //   'img': Cosmos,
+      //   'title': 'Cosmos',
+      //   'short_title': 'Cosmos',
+      //   'subtitle': 'Открытая, масштабируемая и взаимосвязанная экономика будущего',
+      //   'subtitle_en': 'Open scalable and interconnected economy of the future',
+      //   'token': 'ATOM',
+      //   'price': '40.7283',
+      //   'market_cap': '7 505 053 289',
+      //   'h24_vol': '613687518.5917',
+      //   'stakewolle_comission': '0%',
+      //   'annual_comission': '16.52',
+      //   'kepler_link': 'https://wallet.keplr.app/#/cosmoshub/stake?modal=stake&validator=cosmosvaloper1gf4wlkutql95j7wwsxz490s6fahlvk2s9xpwax',
+      //   'coingecko_status': true,
+      //   'ready_to_look': false,
+      //   'adres': 'cosmos1gf4wlkutql95j7wwsxz490s6fahlvk2sqj4m34',
+      //   'cosmostation': 'https://wallet.cosmostation.io/cosmos/',
+      //   'inflation': '9.62',
+      //   'bonded_ratio': '60.29',
+      //   'apy': '',
+      //   'price_dynamics': false
+      // },
+      // {
+      //   'coin': 'ki',
+      //   'img': Ki,
+      //   'title': 'Ki',
+      //   'short_title': 'Ki',
+      //   'subtitle': 'Ki объединяет CeFi и DeFi с использованием Tendermint Core',
+      //   'subtitle_en': 'Ki combines CeFi and DeFi using Tendermint Core',
+      //   'fee': '0.0159',
+      //   'market': 'ATOM',
+      //   'popup_class_slider': 'nets-popup__top-slider__wrapper-item center',
+      //   'calc_class_slider_desktop': 'calculator-wrapper__item _02',
+      //   'calc_info_class_desktop': 'calculator-wrapper__info',
+      //   'calc_class_slider_mobile': 'mobile-calculator__top-item center',
+      //   'nets_class_slider_mobile': 'mobile-stacking__slider-top__item center',
+      //   'nets_info_class_mobile': 'mobile-stacking__slider-info__item',
+      //   'nets_popup_class_mobile': 'nets-popup__top-slider__wrapper-item next',
+      //   'calc_class_info_mobile': 'mobile-calculator__info-item',
+      //   'token': 'XKI',
+      //   'week_data': [0.248,0.2503,0.252,0.2545,0.2541,0.2467,0.2475,0.2468,0.2517,0.249,0.2499,0.2496,0.2486,0.2476,0.2456,0.2458,0.2481,0.2518,0.2526,0.2568,0.2585,0.2598,0.2707],
+      //   'nets_stat_class': 'nets-popup__stat',
+      //   'block_time': '5,821',
+      //   'market_cap': '?',
+      //   'h24_vol': '53851.7451',
+      //   'price': '0.2707',
+      //   'h24_range': [],
+      //   'stakewolle_comission': '0%',
+      //   'annual_comission': '29.4',
+      //   'kepler_link': 'https://www.mintscan.io/ki-chain/validators/kivaloper19seaxuh9wp3zum42w6flrjsr5raptxhy3l8qvw',
+      //   'coingecko_status': true,
+      //   'ready_to_look': false,
+      //   'adres': 'ki19seaxuh9wp3zum42w6flrjsr5raptxhy9cfa0s',
+      //   'cosmostation': 'https://wallet.cosmostation.io/kichain/',
+      //   'inflation': '14',
+      //   'bonded_ratio': '47',
+      //   'apy': '',
+      //   'price_dynamics': false
+      // },
+      // {
+      //   'coin': 'juno-network',
+      //   'img': Juno,
+      //   'title': 'Juno',
+      //   'short_title': 'Juno',
+      //   'subtitle': 'Децентрализованная общедоступная сеть без разрешений для смарт-контрактов между цепочками',
+      //   'subtitle_en': 'Decentralized public network without allowance for smart-contracts between chains',
+      //   'fee': '0.5623',
+      //   'market': 'ATOM',
+      //   'popup_class_slider': 'nets-popup__top-slider__wrapper-item right',
+      //   'calc_class_slider_desktop': 'calculator-wrapper__item _03',
+      //   'calc_info_class_desktop': 'calculator-wrapper__info',
+      //   'calc_class_slider_mobile': 'mobile-calculator__top-item right',
+      //   'nets_class_slider_mobile': 'mobile-stacking__slider-top__item right',
+      //   'nets_info_class_mobile': 'mobile-stacking__slider-info__item',
+      //   'nets_popup_class_mobile': 'nets-popup__top-slider__wrapper-item next',
+      //   'calc_class_info_mobile': 'mobile-calculator__info-item',
+      //   'token': 'JUNO',
+      //   'week_data': [14.297,14.2191,13.9948,14.4841,14.618,14.3183,13.7546,13.7231,13.5597,13.9949,13.8782,13.9866,13.6564,13.6101,13.6782,13.6966,13.9457,14.0718,14.3986,14.5152,14.9696,14.9639,15.3623],
+      //   'nets_stat_class': 'nets-popup__stat',
+      //   'block_time': '6,284',
+      //   'market_cap': '1 276 997 141',
+      //   'h24_vol': '9531826.0202',
+      //   'price': '15.3623',
+      //   'h24_range': [],
+      //   'stakewolle_comission': '5%',
+      //   'annual_comission': '103',
+      //   'kepler_link': 'https://wallet.keplr.app/#/juno/stake?modal=stake&validator=junovaloper1qr78535yz60zemv82sww948c6azx40gnawnh6r',
+      //   'coingecko_status': true,
+      //   'ready_to_look': false,
+      //   'adres': 'juno1qr78535yz60zemv82sww948c6azx40gnzn9cp6',
+      //   'cosmostation': 'https://wallet.cosmostation.io/juno/',
+      //   'inflation': '40',
+      //   'bonded_ratio': '35.93',
+      //   'apy': '',
+      //   'price_dynamics': false,
+      //   'pingpub_link': 'https://ping.pub/juno',
+      //   'bonded_ratio_link': 'https://lcd-juno.itastakers.com'
 
-      },
+      // },
       {
         'coin': 'band-protocol',
         'img': BandProtocol,
@@ -1512,73 +1512,68 @@ export default {
   },
 
   methods: {
-    // addNets() {
-    //   this.nets.forEach(async net => {
-    //     const formdata = new FormData()
-    //     const res = await fetch(net.img)
-    //     const data = await res.blob()
-    //     const file = new File([data], 'file.webp', {})
-    //     formdata.append('coin', net.coin)
-    //     formdata.append('img', [{
-    //       url: net.img,
-    //       name: `image.webp`,
-    //       type: 'multipart/form-data'
-    //     }])
-    //     formdata.append('title', net.title)
-    //     formdata.append('short_title', net.short_title)
-    //     formdata.append('subtitle', net.subtitle)
-    //     formdata.append('subtitle_en', net.subtitle_en)
-    //     formdata.append('token', net.token)
-    //     formdata.append('stakewolle_comission', net.stakewolle_comission)
-    //     formdata.append('kepler_link', net.kepler_link)
-    //     formdata.append('coingecko_status', net.coingecko_status)
-    //     formdata.append('adres', net.adres)
-    //     formdata.append('cosmostation', net.cosmostation)
-    //     formdata.append('pingpub_link', net.pingpub_link)
-    //     formdata.append('bonded_ratio_link', net.bonded_ratio_link)
-    //     const obj = {
-    //       coin: net.coin,
-    //       img: [{
-    //         url: net.img,
-    //         name: `image.webp`,
-    //         type: 'multipart/form-data'
-    //       }],
-    //       title: net.title,
-    //       short_title: net.short_title,
-    //       subtitle: net.subtitle,
-    //       subtitle_en: net.subtitle_en,
-    //       token: net.token,
-    //       stakewolle_comission: net.stakewolle_comission,
-    //       kepler_link: net.kepler_link,
-    //       coingecko_status: net.coingecko_status,
-    //       adres: net.adres,
-    //       cosmostation: net.cosmostation,
-    //       pingpub_link: net.pingpub_link,
-    //       bonded_ratio_link: net.bonded_ratio_link
-    //     }
-    //     try {
-    //       const response = await fetch(`https://stakewolle-admin.herokuapp.com/content-manager/collection-types/api::nets.nets`, {
-    //         method: "POST",
-    //         body: JSON.stringify(obj),
-    //         headers: {
-    //           'Content-type': 'application/json',
-    //           'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU1MDk5NjAxLCJleHAiOjE2NTc2OTE2MDF9.G5aw-ZCuaSPWzpp8AwKBjJ77XxyJhgxrCc-Rd38Pw7g'
-    //         }
-    //       })
-    //       console.log(await response.json());
-    //     }catch(e) {
-    //       console.log(e);
-    //     }
-    //   })
-    // },
+    addNets() {
+      this.nets.forEach(async (net, idx) => {
+        // const formdata = new FormData()
+        // const res = await fetch(net.img)
+        // const data = await res.blob()
+        // const file = new File([data], 'file.webp', {})
+        // formdata.append('coin', net.coin)
+        // formdata.append('img', [{
+        //   url: net.img,
+        //   name: `image.webp`,
+        //   type: 'multipart/form-data'
+        // }])
+        // formdata.append('title', net.title)
+        // formdata.append('short_title', net.short_title)
+        // formdata.append('subtitle', net.subtitle)
+        // formdata.append('subtitle_en', net.subtitle_en)
+        // formdata.append('token', net.token)
+        // formdata.append('stakewolle_comission', net.stakewolle_comission)
+        // formdata.append('kepler_link', net.kepler_link)
+        // formdata.append('coingecko_status', net.coingecko_status)
+        // formdata.append('adres', net.adres)
+        // formdata.append('cosmostation', net.cosmostation)
+        // formdata.append('pingpub_link', net.pingpub_link)
+        // formdata.append('bonded_ratio_link', net.bonded_ratio_link)
+        const obj = {
+          coin: net.coin,
+          img: idx+1,
+          title: net.title,
+          short_title: net.short_title,
+          subtitle: net.subtitle,
+          subtitle_en: net.subtitle_en,
+          token: net.token,
+          stakewolle_comission: net.stakewolle_comission,
+          kepler_link: net.kepler_link,
+          coingecko_status: net.coingecko_status,
+          adres: net.adres,
+          cosmostation: net.cosmostation,
+          pingpub_link: net.pingpub_link,
+          bonded_ratio_link: net.bonded_ratio_link
+        }
+        try {
+          const response = await fetch(`http://5.79.109.120:1337/content-manager/collection-types/application::nets.nets`, {
+            method: "POST",
+            body: JSON.stringify(obj),
+            headers: {
+              'Content-type': 'application/json',
+              'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwiaWF0IjoxNjU1MjA3Njk3LCJleHAiOjE2NTc3OTk2OTd9.RpuI7X0U4MQ0NU5If7FIc-fOJUq7vckCz5L8wM1N3GY'
+            }
+          })
+          console.log(await response.json());
+        }catch(e) {
+          console.log(e);
+        }
+      })
+    },
     round(number){
       return +number.toFixed(4);
     },
     async fetchNets() {
       const nets = (await this.$host.get('/api/net-card')).data
       const page = this.$store.state.nets.page
-      this.$store.commit('nets/saveNets', nets.nets)
-      this.$store.commit('nets/setTotal', nets.count)
+      this.$store.commit('nets/saveNets', nets)
       if (!page) {
         this.$store.commit('nets/setPage', 1)
       }
@@ -1591,9 +1586,11 @@ export default {
           page
         }})
         const data = await res.data
-        this.$store.commit('nets/pushNets', data.nets)
-        this.$store.commit('nets/setTotal', data.count)
+        this.$store.commit('nets/pushNets', data)
         this.$store.commit('nets/setPage', page)
+        if (data.length < 8) {
+          this.$store.commit('nets/setTotal')
+        }
       }catch(e) {
         console.log(e)
       }
