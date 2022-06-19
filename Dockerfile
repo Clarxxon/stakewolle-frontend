@@ -1,28 +1,33 @@
-FROM node:12.13.0-alpine 
+FROM node:12 as builder
 
-# create destination directory
-RUN mkdir -p /usr/src/nuxt-app
-WORKDIR /usr/src/nuxt-app
+WORKDIR /app
 
-# update and install dependency
-RUN apk update && apk upgrade
-RUN apk add git
+COPY . .
 
-# copy the app, note .dockerignore
-COPY . /usr/src/nuxt-app/
-RUN yarn
+RUN yarn install \
+  --prefer-offline \
+  --frozen-lockfile \
+  --non-interactive \
+  --production=false
 
-# build necessary, even if no static files are needed,
-# since it builds the server as well
 RUN yarn build
 
-# expose 5000 on container
-EXPOSE 5000
+RUN yarn generate
 
-# set app serving to permissive / assigned
-ENV NUXT_HOST=0.0.0.0
-# set app port
-ENV NUXT_PORT=5000
+RUN rm -rf node_modules && \
+  NODE_ENV=production yarn install \
+  --prefer-offline \
+  --pure-lockfile \
+  --non-interactive \
+  --production=true
 
-# start the app
+FROM node:12
+
+WORKDIR /app
+
+COPY --from=builder /app  .
+
+ENV HOST 0.0.0.0
+EXPOSE 3000
+
 CMD [ "yarn", "start" ]
