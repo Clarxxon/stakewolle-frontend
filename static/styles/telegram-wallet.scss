@@ -1,0 +1,30 @@
+.wallet-container {
+  padding-top: 40%;
+  background-color: #fff;
+  height: 100vh;
+}
+
+.empty-wallet-block {
+  display: flex;
+  flex-direction: column;
+  & span {
+    font-family: 'Ubuntu';
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    letter-spacing: -0.04em;
+    color: #FFFFFF;
+    padding: 12px 30px;
+    background: #0077FF;
+    border: 3px solid #0077FF;
+    border-radius: 100px;
+    margin: 40px auto 0;
+    max-width: 306px;
+    text-align: center;
+  }
+  & img {
+    width: 63px;
+    height: 63px;
+    margin: 0 auto;
+  }
+}
