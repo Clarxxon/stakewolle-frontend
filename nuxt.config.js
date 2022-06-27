@@ -42,8 +42,6 @@ export default {
     { src: '~static/styles/resize.scss', lang: 'scss', ssr: true },
     { src: '~static/styles/_vars.sass', lang: 'scss', ssr: true },
     { src: '~static/styles/loader.scss', lang: 'scss', ssr: true },
-    { src: '~static/styles/telegram-nets.scss', lang: 'scss', ssr: true },
-    { src: '~static/styles/telegram-wallet.scss', lang: 'scss', ssr: true }
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
