@@ -1588,7 +1588,7 @@ export default {
         const data = await res.data
         this.$store.commit('nets/pushNets', data)
         this.$store.commit('nets/setPage', page)
-        if (data.length < 8) {
+        if (data.length < 4) {
           this.$store.commit('nets/setTotal')
         }
       }catch(e) {
