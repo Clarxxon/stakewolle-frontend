@@ -16,7 +16,7 @@ export default {
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1, maximum-scale=1' },
       { hid: 'description', name: 'description', content: '' },
-      { name: 'format-detection', content: 'telephone=no' }
+      { name: 'format-detection', content: 'telephone=no' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/fav.svg' },
@@ -59,6 +59,7 @@ export default {
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/proxy' ,
     [
       'nuxt-i18n',
       {
@@ -466,9 +467,11 @@ export default {
           }
         }
       }
-    ]
+    ],
   ],
-
+  proxy: {
+    '/db': {target: 'http://5.79.109.120:1337', pathRewrite: {'^/db': ''}},
+  },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
   }
