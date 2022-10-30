@@ -48,9 +48,9 @@
                   <p class="nets-popup__top-slider__wrapper-item__info-name__subtitle">{{i.token}}</p>
                 </div>
                 <div class="nets-popup__top-slider__wrapper-item__info-fee">
-                  <img v-if="!i.price_dynamics" class="course-arrow__top" :src="arrowDown" alt="">
-                  <img v-if="i.price_dynamics" style="transform: rotate(180deg)" class="course-arrow__top" :src="arrowDown" alt="">
-                  <p>{{ i.price_change_percentage }} %</p>
+                  <img v-if="Number(i.fee) < 0" class="course-arrow__top" :src="arrowDown" alt="">
+                  <img v-if="Number(i.fee) > 0" style="transform: rotate(180deg)" class="course-arrow__top" :src="arrowDown" alt="">
+                  <p>{{ Number(i.fee).toFixed(4) * 100 }} %</p>
                 </div>
               </div>
             </div>
@@ -152,13 +152,13 @@
         </div>
       </div>
     </div>
-    <button
+    <!-- <button
       class="preload-btn"
       v-if="!netsTotalCount"
       @click="preloadNets"
     >
       {{isLoading ? 'Loading' : 'Show more'}}
-    </button>
+    </button> -->
 
     <img class="nets-bg-image-violet" :src="violet" alt="">
     <img class="nets-bg-image-violet-p" :src="violet_p" alt="">

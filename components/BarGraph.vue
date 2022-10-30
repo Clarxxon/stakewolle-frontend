@@ -19,7 +19,7 @@ export default {
   data(){
     return{
       chartData:{
-        labels: ['', '', '', '', '', '','', '', '', '', '', '','', '', '', '', '', '','', '', '', '', '', ''],
+        labels: ['', '', '', '', '', '','', '', '', ''],
         datasets: [{
           data: this.sliderDataGraph,
           borderWidth: 7,
