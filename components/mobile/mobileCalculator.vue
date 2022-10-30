@@ -19,7 +19,7 @@
             'left current': idx === 0,
             'center': idx === 1,
             'right': idx === 2,
-            'next': idx === 3
+            'next': idx > 2
           }"
       >
         <img :src="i.img" alt="image"/>

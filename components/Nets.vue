@@ -48,9 +48,9 @@
                   <p class="nets-popup__top-slider__wrapper-item__info-name__subtitle">{{i.token}}</p>
                 </div>
                 <div class="nets-popup__top-slider__wrapper-item__info-fee">
-                  <img v-if="Number(i.fee) < 0" class="course-arrow__top" :src="arrowDown" alt="">
-                  <img v-if="Number(i.fee) > 0" style="transform: rotate(180deg)" class="course-arrow__top" :src="arrowDown" alt="">
-                  <p>{{ Number(i.fee).toFixed(4) * 100 }} %</p>
+                  <img v-if="Number(i.price_change_percentage_24h) < 0" class="course-arrow__top" :src="arrowDown" alt="">
+                  <img v-if="Number(i.price_change_percentage_24h) > 0" style="transform: rotate(180deg)" class="course-arrow__top" :src="arrowDown" alt="">
+                  <p>{{ Number(i.price_change_percentage_24h).toFixed(2)}} %</p>
                 </div>
               </div>
             </div>

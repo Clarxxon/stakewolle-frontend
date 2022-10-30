@@ -162,7 +162,7 @@ export default {
         limit: 50
       } })).data
       const page = this.$store.state.nets.page
-      this.$store.commit('nets/saveNets', nets)
+      this.$store.commit('nets/saveNets', nets.sort((a,b) => a.sort - b.sort))
       if (!page) {
         this.$store.commit('nets/setPage', 1)
       }
@@ -194,6 +194,7 @@ export default {
     await this.fetchNets()
 
     window.addEventListener('orientationchange', () => {
+       window.location.reload()
       const orientation = window.matchMedia('(orientation: landscape)')
       if (orientation.matches) {
         window.location.reload()

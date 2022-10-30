@@ -171,7 +171,6 @@
                 <p>{{ $t('staking') }}</p>
               </button>
             </div>
-            <button v-if="!netsTotalCount" class="mobile-preload-btn" @click="preloadNets" >{{ isLoading ? 'Loading' : 'Get more' }}</button> 
           </div>
         </div>
       </div>
