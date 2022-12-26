@@ -62,6 +62,9 @@
       <a v-if="navigation.blog" id="blog" target="_blank" href="https://medium.com/@stakewolle" class="footer-sections__item">
         <p>{{ $t('navigation.blog') }}</p>
       </a>
+       <a :href="Terms" target="blank" class="footer-sections__item" id="terms">
+        <p>{{ $t('navigation.terms') }}</p>
+      </a>
     </div>
     <!-- Begin Mailchimp Signup Form -->
     <form action="https://stakewolle.us14.list-manage.com/subscribe/post?u=b36985125a188dbcb49cb8dc0&amp;id=b446ab1001" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate footer-contacts__form" novalidate>
@@ -105,6 +108,7 @@ import formOrangeBg from '../static/footer/form-orange-bg.png'
 import formWhiteBg from '../static/footer/form-white-bg.png'
 import roundDesmos from '../static/redesign/Round orange (13).svg'
 import roundVioletBlur1 from '../static/footer/round-violet-blur.svg'
+import Terms from '../static/footer/Terms_and_Conditions.pdf'
 
 export default {
   name: "Footer",
@@ -115,7 +119,7 @@ export default {
     return{
       formOrangeBg, formWhiteBg, roundDesmos, roundVioletBlur1,
       logo, github, instagram, telegram,
-      twitter, mail, roundAlert1, roundAlert2, email
+      twitter, mail, roundAlert1, roundAlert2, email, Terms
     }
   },
   methods: {

@@ -18,7 +18,6 @@
 <script>
 import '../static/fonts/font (1)/stylesheet.css'
 import '../static/styles/admin.scss'
-import logo from '../static/admin/logo.svg'
 export default {
   name: "admin-login",
   data: () => ({

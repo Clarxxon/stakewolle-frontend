@@ -54,6 +54,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
+    'nuxt-pdf'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -76,7 +77,8 @@ export default {
                 guide: 'Guide',
                 contacts: 'Contacts',
                 profit: 'Profit',
-                blog: 'Blog'
+                blog: 'Blog',
+                terms: 'Terms and Conditions'
               },
               welcome: {
                 staking_provider: 'staking provider hosted by professionals',
@@ -268,7 +270,8 @@ export default {
                 guide: 'Руководство',
                 contacts: 'Контакты',
                 profit: 'Прибыль',
-                blog: 'Блог'
+                blog: 'Блог',
+                terms: 'Terms and Conditions'
               },
               welcome: {
                 staking_provider: 'Стейкинг провайдер от профессионалов',
@@ -474,5 +477,14 @@ export default {
   },
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
+    extend(config) {
+      // Find the rule which contains a assets file extension
+      const assetsLoader = config.module.rules.find(rule => rule.test.test('.png'));
+
+      // Overwrite the test regex and add `pdf`
+      assetsLoader.test = /\.(png|jpe?g|gif|svg|webp|pdf)$/i;
+
+      return config;
+    },
   }
 }

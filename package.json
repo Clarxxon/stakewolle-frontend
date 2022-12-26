@@ -27,6 +27,7 @@
     "webpack": "4.46.0"
   },
   "devDependencies": {
-    "dotenv-webpack": "^7.1.0"
+    "dotenv-webpack": "^7.1.0",
+    "nuxt-pdf": "^2.0.1"
   }
 }
