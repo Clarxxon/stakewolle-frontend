@@ -49,6 +49,7 @@
       <nuxt-link v-if="navigation.tutorial && this.$i18n.locale === 'es'" to="/es/tutorial">{{ $t('navigation.guide') }}</nuxt-link>
       <a v-if="navigation.contacts" @click.prevent="openSlide('m-contacts')" href="#m-contacts">{{ $t('navigation.contacts') }}</a>
       <a v-if="navigation.blog" target="_blank" href="https://medium.com/@stakewolle">{{ $t('navigation.blog') }}</a>
+      <a :href="Terms" target="_blank">{{ $t('navigation.terms') }}</a>
     </div>
     <div class="mobile-footer__form">
       <img class="footer-contacts__form-bg" id="footer-round-orange" :src="roundOrange" alt="">
@@ -95,6 +96,8 @@ import roundVioletBlur from '../../static/footer/round-violet-blur.svg'
 import roundOrange from '../../static/footer/round-orange.svg'
 import email from '../../static/email.svg'
 
+import Terms from '@/static/footer/Terms_and_Conditions.pdf'
+
 export default {
   name: "mobileFooter",
   props: {
@@ -104,7 +107,7 @@ export default {
     return{
       logo, twitter, telegram, instagram, github,
       mail, formWhiteBg, roundDesmos, formOrangeBg,
-      roundVioletBlur, roundOrange, email
+      roundVioletBlur, roundOrange, email, Terms
     }
   },
   methods: {

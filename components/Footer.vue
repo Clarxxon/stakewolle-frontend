@@ -62,7 +62,7 @@
       <a v-if="navigation.blog" id="blog" target="_blank" href="https://medium.com/@stakewolle" class="footer-sections__item">
         <p>{{ $t('navigation.blog') }}</p>
       </a>
-       <a :href="Terms" target="blank" class="footer-sections__item" id="terms">
+      <a :href="Terms" target="blank" class="footer-sections__item" id="terms">
         <p>{{ $t('navigation.terms') }}</p>
       </a>
     </div>
