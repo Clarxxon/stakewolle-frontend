@@ -1,6 +1,5 @@
 <template>
   <div id="m-about" class="mobile-about-us">
-    <img src="" alt="image"/>
     <div class="mobile-about-us__bg"></div>
     <div class="mobile-content">
       <div class="mobile-about-us__info">
