@@ -54,7 +54,7 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    'nuxt-pdf'
+    //'nuxt-pdf'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

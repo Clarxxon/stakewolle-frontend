@@ -15,7 +15,7 @@ RUN yarn build
 
 RUN yarn generate
 
-FROM node:12
+FROM node:gallium-slim
 
 WORKDIR /app
 
